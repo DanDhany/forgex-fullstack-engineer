@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="fx-grad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38BDF8"/>
+      <stop offset="0.5" stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#A855F7"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#0B1220"/>
+  <rect x="2" y="2" width="60" height="60" rx="14" stroke="url(#fx-grad)" stroke-width="2" stroke-opacity="0.8"/>
+  <path d="M18 18H42V25H26V30H39V37H26V46H18V18Z" fill="url(#fx-grad)"/>
+  <path d="M41 22L47 18L37 46H30L36 32L41 22Z" fill="#38BDF8"/>
+  <path d="M46 46L39 36L44 29L51 46H46Z" fill="#A855F7"/>
+</svg>
