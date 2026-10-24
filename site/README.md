@@ -80,3 +80,14 @@ npm test
 ```
 
 The current test suite checks semantic landmarks, GitHub Pages-relative asset paths, theme/responsive tokens, all 16 module names, the v1.2.0 label, and desktop/mobile navigation links. Browser QA must be run separately.
+
+
+## 🔗 Public Reference Library
+
+The landing page includes a visible **Reference Library** section with direct links and attribution for the public projects and design references that inform selected ForgeX principles:
+
+- **Product craft:** Impeccable, Taste-Skill, Emil Kowalski's design-engineering skills, Linear, Stripe Design, and Vercel Geist.
+- **Engineering workflows:** Jeffallan's `claude-skills`, Superpowers, gstack, and Humanizer.
+- **Documentation and safety:** Laravel Boost, Context7, and NVIDIA SkillSpector.
+
+These references are not all bundled into ForgeX. Listing a source does not imply affiliation or endorsement, and optional integrations must be installed and available before they can be used. Each upstream project retains its own license and terms. See the `#references` section in `index.html` for the direct links and a short explanation of how each source informs ForgeX.

@@ -58,3 +58,42 @@ test('modules section is linked from desktop and mobile navigation', () => {
   assert.ok(html.includes('href="#modules" class="mobile-drawer-link">Modules</a>'));
   assert.ok(html.includes('<section id="modules"'));
 });
+
+test('website includes a visible reference library with direct source links', () => {
+  assert.match(html, /<section id="references"/);
+  const referenceUrls = [
+    'https://github.com/pbakaus/impeccable',
+    'https://github.com/Leonxlnx/taste-skill',
+    'https://github.com/emilkowalski/skills',
+    'https://linear.app/',
+    'https://stripe.design/',
+    'https://vercel.com/geist/introduction',
+    'https://github.com/jeffallan/claude-skills',
+    'https://github.com/obra/superpowers',
+    'https://github.com/garrytan/gstack',
+    'https://github.com/hannsxpeter/humanizer',
+    'https://laravel.com/docs/boost',
+    'https://github.com/upstash/context7',
+    'https://github.com/NVIDIA/skillspector',
+  ];
+  for (const url of referenceUrls) {
+    assert.ok(html.includes(url), `Website reference link missing: ${url}`);
+  }
+  assert.match(html, /does not claim affiliation or endorsement/i);
+  assert.match(html, /optional integrations must be installed and available/i);
+});
+
+test('reference library is linked from desktop, mobile, and footer navigation', () => {
+  assert.match(html, /href="#references">References<\/a>/);
+  assert.match(html, /href="#references" class="mobile-drawer-link">References<\/a>/);
+  assert.match(html, /href="#references">Reference Library<\/a>/);
+});
+
+test('reference library has responsive styles and theme-aware surfaces', () => {
+  assert.ok(css.includes('.reference-groups {'));
+  assert.ok(css.includes('.reference-list {'));
+  assert.ok(css.includes('var(--bg-surface)'));
+  assert.ok(css.includes('var(--text-secondary)'));
+  assert.ok(css.includes('@media (max-width: 768px)'));
+  assert.ok(css.includes('@media (max-width: 480px)'));
+});
