@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="48" y1="20" x2="1150" y2="420" gradientUnits="userSpaceOnUse"><stop stop-color="#0B1220"/><stop offset="1" stop-color="#172554"/></linearGradient>
+    <linearGradient id="accent" x1="120" y1="80" x2="530" y2="300" gradientUnits="userSpaceOnUse"><stop stop-color="#67E8F9"/><stop offset=".5" stop-color="#60A5FA"/><stop offset="1" stop-color="#C4B5FD"/></linearGradient>
+    <linearGradient id="line" x1="670" y1="88" x2="1060" y2="315" gradientUnits="userSpaceOnUse"><stop stop-color="#67E8F9" stop-opacity=".8"/><stop offset="1" stop-color="#A5B4FC" stop-opacity=".3"/></linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" stroke="#94A3B8" stroke-opacity=".08"/></pattern>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="1200" height="420" rx="28" fill="url(#bg)"/>
+  <rect width="1200" height="420" rx="28" fill="url(#grid)"/>
+  <circle cx="1000" cy="92" r="125" fill="#3B82F6" fill-opacity=".16" filter="url(#glow)"/>
+  <circle cx="782" cy="325" r="120" fill="#22D3EE" fill-opacity=".10" filter="url(#glow)"/>
+  <g transform="translate(64 62)">
+    <rect width="58" height="58" rx="17" fill="url(#accent)"/>
+    <path d="M16 18H42V26H25V32H39V40H25V46H16V18Z" fill="#0B1220"/>
+    <path d="M43 18H49V46H41V27H35V18H43Z" fill="#0B1220"/>
+  </g>
+  <text x="140" y="88" fill="#CBD5E1" font-family="Inter,ui-sans-serif,system-ui,sans-serif" font-size="17" font-weight="650" letter-spacing="3">THE PRACTICAL CODING-AGENT SKILL</text>
+  <text x="64" y="170" fill="#F8FAFC" font-family="Inter,ui-sans-serif,system-ui,sans-serif" font-size="56" font-weight="800" letter-spacing="-2">ForgeX Full-Stack</text>
+  <text x="64" y="230" fill="url(#accent)" font-family="Inter,ui-sans-serif,system-ui,sans-serif" font-size="56" font-weight="800" letter-spacing="-2">Engineer</text>
+  <text x="66" y="278" fill="#CBD5E1" font-family="Inter,ui-sans-serif,system-ui,sans-serif" font-size="20">One skill. Better UI. Connected stacks. Persistent context.</text>
+  <g transform="translate(66 315)">
+    <rect width="145" height="34" rx="17" fill="#0F766E" fill-opacity=".32" stroke="#5EEAD4" stroke-opacity=".6"/><text x="72.5" y="22" text-anchor="middle" fill="#CCFBF1" font-family="Inter,ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="700">UI / UX FIRST</text>
+    <rect x="156" width="166" height="34" rx="17" fill="#1D4ED8" fill-opacity=".28" stroke="#93C5FD" stroke-opacity=".65"/><text x="239" y="22" text-anchor="middle" fill="#DBEAFE" font-family="Inter,ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="700">CROSS-STACK</text>
+    <rect x="333" width="168" height="34" rx="17" fill="#6D28D9" fill-opacity=".25" stroke="#C4B5FD" stroke-opacity=".65"/><text x="417" y="22" text-anchor="middle" fill="#EDE9FE" font-family="Inter,ui-sans-serif,system-ui,sans-serif" font-size="13" font-weight="700">SESSION HANDOFF</text>
+  </g>
+  <g transform="translate(685 70)">
+    <rect x="0" y="0" width="430" height="280" rx="22" fill="#0B1220" fill-opacity=".75" stroke="#64748B" stroke-opacity=".55"/>
+    <rect x="0.75" y="0.75" width="428.5" height="48" rx="21" fill="#1E293B" fill-opacity=".85"/>
+    <circle cx="22" cy="24" r="5" fill="#FB7185"/><circle cx="40" cy="24" r="5" fill="#FBBF24"/><circle cx="58" cy="24" r="5" fill="#34D399"/>
+    <text x="215" y="29" text-anchor="middle" fill="#94A3B8" font-family="ui-monospace,SFMono-Regular,monospace" font-size="12">feature-workflow.md</text>
+    <g font-family="ui-monospace,SFMono-Regular,monospace" font-size="14">
+      <text x="24" y="83" fill="#64748B">01</text><text x="54" y="83" fill="#67E8F9">inspect</text><text x="125" y="83" fill="#CBD5E1">existing project + git</text>
+      <text x="24" y="119" fill="#64748B">02</text><text x="54" y="119" fill="#A5B4FC">design</text><text x="116" y="119" fill="#CBD5E1">responsive, themes, reuse</text>
+      <text x="24" y="155" fill="#64748B">03</text><text x="54" y="155" fill="#67E8F9">connect</text><text x="132" y="155" fill="#CBD5E1">UI → API → data</text>
+      <text x="24" y="191" fill="#64748B">04</text><text x="54" y="191" fill="#A5F3FC">verify</text><text x="116" y="191" fill="#CBD5E1">tests + real tool evidence</text>
+      <text x="24" y="227" fill="#64748B">05</text><text x="54" y="227" fill="#C4B5FD">handoff</text><text x="132" y="227" fill="#CBD5E1">state + next steps</text>
+    </g>
+    <path d="M24 244H406" stroke="url(#line)" stroke-width="1.5"/>
+    <text x="24" y="265" fill="#94A3B8" font-family="ui-monospace,SFMono-Regular,monospace" font-size="11">LESS RE-DISCOVERY. MORE CONTINUITY.</text>
+  </g>
+</svg>
