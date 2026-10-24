@@ -1,0 +1,71 @@
+
+name: Release ForgeX
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Test, Package, Publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout tagged source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate tag and package version
+        shell: bash
+        run: |
+          TAG="${GITHUB_REF_NAME#v}"
+          VERSION="$(node -p "require('./package.json').version")"
+
+          if [[ "$TAG" != "$VERSION" ]]; then
+            echo "::error::Git tag $TAG does not match package.json version $VERSION"
+            exit 1
+          fi
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build release ZIP
+        shell: bash
+        run: |
+          mkdir -p dist
+          ZIP_NAME="forgex-fullstack-engineer-${GITHUB_REF_NAME}.zip"
+
+          git archive \
+            --format=zip \
+            --prefix="forgex-fullstack-engineer-${GITHUB_REF_NAME}/" \
+            HEAD \
+            -o "dist/${ZIP_NAME}"
+
+          test -s "dist/${ZIP_NAME}"
+          sha256sum "dist/${ZIP_NAME}" \
+            > "dist/${ZIP_NAME}.sha256"
+
+      - name: Publish GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${GITHUB_REF_NAME}" \
+            "dist/forgex-fullstack-engineer-${GITHUB_REF_NAME}.zip" \
+            "dist/forgex-fullstack-engineer-${GITHUB_REF_NAME}.zip.sha256" \
+            --verify-tag \
+            --generate-notes \
+            --title "ForgeX ${GITHUB_REF_NAME}"
