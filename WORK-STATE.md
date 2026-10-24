@@ -1,51 +1,46 @@
 # Work State / Agent Handoff
 
 > Updated: 2026-10-24
-> Status: Ready for verification / Completed implementation
+> Status: Refined and Verified
 
 ## Current goal
-Build a distinctive, production-ready landing page for **ForgeX Full-Stack Engineer** in the `site/` directory, fully compatible with GitHub Pages, following ForgeX UI/UX craft principles, typography art direction, and quality gates.
+Refine the ForgeX landing page in `site/`:
+1. Fix theme bugs (high contrast command text and syntax in both Light and Dark modes).
+2. Reduce AI slop (remove faux macOS traffic lights, reduce glow, tone down cyber aesthetics, introduce varied architectural spec cards).
+3. Apply Humanizer copywriting principles (concrete, factual, zero puffy marketing fluff, specific to ForgeX's actual features and benefits).
 
 ## Current state
 - Done:
-  - Formulated product-specific design thesis avoiding generic AI slop templates.
-  - Implemented semantic, accessible HTML5 single-page application (`site/index.html`).
-  - Created tokenized, dual-theme CSS architecture with mature dark/light tonal hierarchies and responsive clamp typography (`site/css/style.css`).
-  - Implemented interactive UI components (`site/js/app.js`): theme switcher with localStorage persistence and system preference sync, interactive 5-layer Contract Tracer, interactive Install Studio with 1-click clipboard copy, and accessible mobile drawer.
-  - Added self-contained SVG assets: `site/assets/favicon.svg`, `site/assets/forgex-hero.svg`, and `.nojekyll` configuration for GitHub Pages.
-  - Authored comprehensive documentation (`site/README.md`) on running locally, design system architecture, and GitHub Pages deployment.
-  - Added automated test suite (`test/site.test.js`) verifying semantics, relative paths, meta tags, and tokens.
-  - Executed automated browser QA using Chrome DevTools Protocol across Mobile (390×844), Tablet (768×1024), and Desktop (1440×900) in both Dark and Light modes. Resolved initial mobile horizontal overflow and verified `scrollWidth <= clientWidth` on all viewports.
+  - **Theme Contrast Audit & Fix:** Audited and resolved text contrast in Light and Dark modes. The command box, Install Studio terminal blocks, inline `.path-code` tags, mock terminal syntax highlighting (`.hl-green`, `.hl-cyan`, `.hl-red`, `.hl-amber`), and copy buttons now feature dedicated high-contrast tokens in both themes.
+  - **AI Slop Reduction:** Removed fake macOS traffic light dots from the verification console and tracer panel. Replaced generic glow effects with crisp, natural shadows. Replaced repetitive checkmark lists on pillar cards with distinct architectural spec breakdowns. Replaced informal "0 Slop" metric with grounded technical spec ("100% Token Retention").
+  - **Humanizer Copywriting:** Rewrote headlines, leads, feature descriptions, and quality gates. Replaced vague marketing buzzwords ("battle-tested", "revolutionary") with direct developer language highlighting `WORK-STATE.md`, mobile viewport assertions, server-side validation contracts, and explicit agent support (Codex `$forgex`, Claude Code `/forgex`, Antigravity, Cursor).
+  - **Verification:** Ran automated test suite (`npm test`, 19/19 passing) and Chrome CDP browser QA across Mobile (390×844), Tablet (768×1024), and Desktop (1440×900) in both Dark and Light modes. Zero horizontal overflow observed (`scrollWidth == clientWidth`).
 - In progress: None.
 - Not started: None.
 
 ## Important decisions
-- **Strictly Relative Paths:** Used `./css/style.css`, `./js/app.js`, `./assets/...` to guarantee zero-break deployment on GitHub Pages when hosted at `https://<user>.github.io/<repo>/`.
-- **Zero Build Tool Overhead:** Implemented using pure modern web standards (HTML5 semantic tags, CSS3 custom properties, ES modules). No bundlers, npm build steps, or dependency vulnerabilities required.
-- **Product Character Typography:** Paired `Plus Jakarta Sans` for geometric, authoritative headlines with `JetBrains Mono` for tactical badges and terminal commands, with robust native system fallbacks.
-- **Tonal Hierarchy Over Gradients:** Dark mode utilizes deep carbon/obsidian (`#080C14`), charcoal slate cards (`#0F1624`), and subtle border delineation. Light mode utilizes crisp architectural canvas (`#F8FAFC`) with deep ink text (`#0F172A`) and dark code blocks for developer comfort.
+- **Dedicated Light & Dark Code Tokens:** Code blocks and terminal commands use `--code-bg`, `--code-border`, `--code-text`, and `--code-text-accent`. In light mode, this provides a crisp, legible `#f1f5f9` surface with `#0f172a` primary code text and `#0284c7` command accents (>12:1 WCAG contrast).
+- **Subtle Developer Aesthetics:** Moved away from "cyberpunk/neon" tropes toward clean, authoritative software engineering aesthetics (Linear/Stripe-inspired precision borders and restrained typography).
+- **Humanizer Copy Principles:** Kept copy concise, factual, and active. Clearly stated tool names, file paths, commands, and architecture realities.
 
 ## Files and modules
-- `site/index.html`: Main landing page with full content, semantic sections, skip link, and accessible ARIA attributes.
-- `site/css/style.css`: Tokenized design system, light/dark themes, responsive grid/flex layouts, mobile reflows, and reduced-motion support.
-- `site/js/app.js`: Theme toggle, contract tracer step engine, install studio tab switcher, copy buttons, and mobile drawer.
-- `site/assets/favicon.svg`: Distinctive ForgeX SVG mark.
-- `site/assets/forgex-hero.svg`: Hero architectural SVG illustration.
-- `site/.nojekyll`: GitHub Pages bypass file for Jekyll processing.
-- `site/README.md`: Module documentation, local dev instructions, and architecture details.
-- `site/run-qa.mjs`: Automated Chrome DevTools Protocol browser QA script.
-- `site/qa-artifacts/`: Verified screenshots for mobile, tablet, and desktop viewports in dark and light themes.
-- `test/site.test.js`: Automated test suite for semantic tags, relative paths, and CSS tokens.
-- `WORK-STATE.md`: ForgeX session continuity and handoff file.
+- `site/index.html`: Refined landing page markup with Humanizer copy and authentic developer console UI.
+- `site/css/style.css`: Updated design tokens with dedicated high-contrast code variables, refined typography rhythm, and toned-down shadows.
+- `site/js/app.js`: Interactive engine for theme toggle, 5-layer Contract Tracer, and Install Studio tab switcher.
+- `site/assets/`: Self-contained SVGs (`favicon.svg`, `forgex-hero.svg`) and `.nojekyll` configuration.
+- `site/README.md`: Updated documentation on running locally, design tokens, and GitHub Pages hosting.
+- `site/run-qa.mjs`: Automated Chrome DevTools Protocol testing script.
+- `site/qa-artifacts/`: Generated screenshots for mobile, tablet, and desktop viewports in both Dark and Light modes.
+- `test/site.test.js`: Automated tests for HTML semantics, relative paths, and token completeness.
+- `WORK-STATE.md`: ForgeX session handoff checkpoint.
 
 ## Verification
-- **Unit/Integration Tests:** `npm test` ran 19 tests across 3 suites; 19 passed, 0 failed.
-- **Automated Browser QA:** `node ./site/run-qa.mjs` ran headless Chrome CDP:
+- **Automated Tests:** `npm test` &rarr; 19 tests passed, 0 failed.
+- **Chrome CDP Browser QA:**
   - Mobile (390×844): Dark & Light verified. `scrollWidth: 390`, `clientWidth: 390`, `hasHorizontalOverflow: false`.
   - Tablet (768×1024): Dark & Light verified. `scrollWidth: 753`, `clientWidth: 753`, `hasHorizontalOverflow: false`.
   - Desktop (1440×900): Dark & Light verified. `scrollWidth: 1425`, `clientWidth: 1425`, `hasHorizontalOverflow: false`.
   - Interactive widgets verified: Contract Tracer tab switching, Install Studio tab switching, and Theme Toggle switching.
-  - Screenshots persisted in `site/qa-artifacts/`.
 
 ## Git state
 - Branch: `main...origin/main`
@@ -53,13 +48,13 @@ Build a distinctive, production-ready landing page for **ForgeX Full-Stack Engin
 - No pre-existing files modified. No commits or pushes made.
 
 ## Blockers and risks
-- None known.
+- None.
 
 ## Next actions (ordered)
-1. Publish to GitHub Pages by configuring repository settings (Settings &rarr; Pages &rarr; Source: Deploy from branch &rarr; Branch: `main` / Folder: `/site` or root).
-2. Optionally add OpenGraph card banner (`og-image.png`) if social platforms require PNG rather than SVG.
+1. Configure GitHub Pages in repository settings (Deploy from branch &rarr; `main` &rarr; `/site` folder).
+2. Share landing page link with developer community.
 
 ## Resume prompt
 ```text
-The ForgeX landing page in site/ has been implemented, validated, and verified with Chrome CDP across mobile (390x844), tablet (768x1024), and desktop (1440x900) in both dark and light modes. All 19 tests pass via `npm test`. Review WORK-STATE.md before proceeding with any deployment or repository configuration.
+ForgeX landing page refinement in site/ is complete. Theme contrast audited for dark and light modes, AI slop eliminated, and copywriting humanized. All 19 tests pass via npm test and Chrome CDP browser QA verified zero overflow across mobile, tablet, and desktop. Review WORK-STATE.md before proceeding with deployment.
 ```
