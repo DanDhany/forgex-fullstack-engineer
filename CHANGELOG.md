@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.8 — Product-aware visual art direction
+
+- Added a product-specific art-direction framework for choosing brand colors, light-mode canvas/surfaces, dark-mode tonal steps, visual effects, and motion based on product identity and user context.
+- Explicitly clarifies that light mode need not be pure white and that white/neutral surfaces may be warm, cool, tinted, or product-specific.
+- Separates brand, semantic, surface, and data-visualization colors; adds guidance for purposeful effects, accessible contrast, and reduced-motion behavior.
+- Adds a compact art-direction note requirement for substantial UI work without turning every task into a long questionnaire.
+- Updated package and skill metadata to 1.1.8.
+
 ## 1.1.7 — Typography art direction and rendered quality gate
 
 - Added six linked typography decisions: product-specific typeface rationale, coherent reusable type system, deliberate headline composition, integration with overall art direction, rendered-output verification, and interaction/state polish.

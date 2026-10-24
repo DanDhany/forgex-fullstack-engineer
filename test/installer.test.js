@@ -105,8 +105,8 @@ test("UI workflow is low-prompt and requires product-specific composition for ma
 test("package and skill versions stay aligned", async () => {
   const pkg = JSON.parse(await fs.readFile(path.resolve("package.json"), "utf8"));
   const skill = await fs.readFile(path.resolve("skills/forgex/SKILL.md"), "utf8");
-  assert.equal(pkg.version, "1.1.7");
-  assert.match(skill, /version: "1.1.7"/);
+  assert.equal(pkg.version, "1.1.8");
+  assert.match(skill, /version: "1.1.8"/);
 });
 
 
@@ -144,4 +144,15 @@ test("UI craft enforces six-part typography art direction and acceptance gate", 
   assert.match(ui, /Required acceptance gate for substantial UI work/);
   assert.match(ui, /reduced-motion behavior/);
   assert.match(skill, /six typography art-direction decisions/);
+});
+
+
+test("UI craft requires product-aware color, surface, effects, and motion decisions", async () => {
+  const ui = await fs.readFile(path.resolve("skills/forgex/references/ui-ux-craft.md"), "utf8");
+  assert.match(ui, /Product-aware art direction: brand, color, surfaces, effects, and motion/);
+  assert.match(ui, /Treat light mode as a designed palette, not white mode/);
+  assert.match(ui, /Separate \*\*brand colors\*\*.*\*\*semantic colors\*\*/);
+  assert.match(ui, /Choose effects by purpose, not trend/);
+  assert.match(ui, /Choose motion by product character and interaction need/);
+  assert.match(ui, /Make the direction concrete before coding/);
 });

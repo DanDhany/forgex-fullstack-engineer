@@ -53,6 +53,36 @@ Treat these as warning signs, not absolute bans. Use a pattern only when there i
 
 Before accepting the UI, name the specific choices that make it fit this product: composition, hierarchy, type, density, surface treatment, interaction, content, or navigation. “Looks modern” is not a sufficient rationale. For a new landing page, explicitly check whether its silhouette and section rhythm could be mistaken for dozens of unrelated AI SaaS pages. If yes, revisit composition, content hierarchy, and product-specific visuals before adding more decorative effects.
 
+## 4. Product-aware art direction: brand, color, surfaces, effects, and motion
+
+Choose visual treatment from the product's identity and use case; do not apply one ForgeX house style to every project. A developer tool, civic service, health product, finance dashboard, playful consumer app, and editorial product should not all receive the same blue-purple gradient, white canvas, rounded cards, or glow.
+
+### Start with a compact product visual brief
+
+Before selecting tokens for substantial UI work, infer or establish: audience and context, product category, brand personality (3–5 concrete traits), trust/emotional needs, information density, accessibility needs, existing brand assets, and implementation constraints. Record a short rationale. Do not invent brand research or claim the palette is validated with users. If a crucial brand constraint is unknown and cannot be safely inferred, ask one focused question; otherwise proceed with a reversible proposal.
+
+### Build a product-specific color system
+
+- Separate **brand colors** (identity), **semantic colors** (success, warning, danger, info), **neutral/surface colors** (canvas, raised surface, border, text), and **data visualization colors**. Never use brand accent as the default for every border, icon, badge, and heading.
+- Select a palette based on product context, not category stereotypes. Explain the functional role of primary, secondary, and accent colors; do not assign emotional meanings as universal facts.
+- Treat light mode as a designed palette, not white mode. Consider warm white, ivory, pearl, cool mist, pale blue, sand, stone, pale sage, or tinted neutrals when they support the product. Pure white and pure black are options, not defaults. Choose canvas, surface, elevated surface, subtle tint, border, primary text, and muted text as related tones.
+- Treat dark mode as its own composition. Use deliberate tonal steps and readable text; avoid flattening every surface into one navy/black, or using bright neon accents everywhere.
+- Define semantic tokens such as `--color-brand`, `--color-brand-strong`, `--color-accent`, `--color-canvas`, `--color-surface`, `--color-surface-raised`, `--color-border`, `--color-text`, `--color-text-muted`, and semantic status tokens. Adapt names to the project's existing token system rather than creating duplicate token layers.
+- Check contrast for actual text, controls, focus indicators, disabled states, charts, and status meaning in both themes. Do not rely on color alone to communicate status. Verify rendered combinations when tools permit; report unverified contrast as such.
+- Prefer a restrained palette with intentional roles over many competing accent colors. A useful starting point is one brand family, one supporting/accent family if needed, a neutral/surface scale, and semantic colors—not a rigid color-count rule.
+
+### Choose effects by purpose, not trend
+
+For each gradient, glow, blur, glass surface, shadow, grain, border treatment, illustration, and decorative motif, answer: what does it communicate or help the user do? Keep it only when it improves hierarchy, depth, feedback, affordance, or brand recognition. Effects are not mandatory. Use plain surfaces when they fit better. Avoid stacking several trendy treatments on every section, and avoid using the same decorative recipe across unrelated products. Consider performance, readability, low-end devices, and reduced transparency settings.
+
+### Choose motion by product character and interaction need
+
+Select a motion profile (none, subtle, or expressive) that matches product personality and user context. Motion should explain state change, spatial relationships, progress, or interaction feedback. Specify the property being animated, approximate duration/easing, interruption/exit behavior, and reduced-motion fallback when motion is meaningful. Avoid gratuitous entrance animations, scroll hijacking, perpetual movement, and motion that delays access to content. Verify focus, touch, keyboard, and reduced-motion behavior.
+
+### Make the direction concrete before coding
+
+For substantial UI work, the compact art-direction note should name: (1) product character, (2) brand palette and why it fits, (3) light-theme canvas/surface direction, (4) dark-theme tonal direction, (5) effects to use and deliberately avoid, and (6) motion profile. Consider two meaningfully different visual directions when starting a new product or major redesign, then select one based on product context—not just which looks trendier. Do not ask the user to choose every color or effect unless brand identity is genuinely ambiguous and consequential.
+
 ## 4. Typography and color are structural design decisions
 
 Typography and palette strongly affect perceived craft. Do not treat them as decoration chosen after layout.
