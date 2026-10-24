@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.7 — Typography art direction and rendered quality gate
+
+- Added six linked typography decisions: product-specific typeface rationale, coherent reusable type system, deliberate headline composition, integration with overall art direction, rendered-output verification, and interaction/state polish.
+- Added acceptance criteria for substantial UI work, including responsive wrapping, fallback/font-loading checks, readable body copy, clipping/orphan detection, theme contrast, and reduced-motion behavior.
+- Required the main skill workflow to apply typography art direction as a design gate, not merely a list of font-size rules.
+- Added regression tests for the six decisions and their acceptance gate; package and skill metadata updated to 1.1.7.
+
 ## 1.1.6 — Viewport-verified responsive QA
 
 - Strengthened browser QA to verify the actual CSS viewport before trusting mobile screenshots; a cropped desktop capture does not count as mobile testing.

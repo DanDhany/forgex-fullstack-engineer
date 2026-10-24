@@ -105,8 +105,8 @@ test("UI workflow is low-prompt and requires product-specific composition for ma
 test("package and skill versions stay aligned", async () => {
   const pkg = JSON.parse(await fs.readFile(path.resolve("package.json"), "utf8"));
   const skill = await fs.readFile(path.resolve("skills/forgex/SKILL.md"), "utf8");
-  assert.equal(pkg.version, "1.1.6");
-  assert.match(skill, /version: "1.1.6"/);
+  assert.equal(pkg.version, "1.1.7");
+  assert.match(skill, /version: "1.1.7"/);
 });
 
 
@@ -128,4 +128,20 @@ test("UI craft requires actual viewport validation and paired mobile overflow ch
   assert.match(ui, /A narrow screenshot crop of a desktop viewport is not mobile QA/);
   assert.match(ui, /uniform navy slab/);
   assert.match(skill, /Confirm the browser actually uses each requested CSS viewport/);
+});
+
+
+test("UI craft enforces six-part typography art direction and acceptance gate", async () => {
+  const ui = await fs.readFile(path.resolve("skills/forgex/references/ui-ux-craft.md"), "utf8");
+  const skill = await fs.readFile(path.resolve("skills/forgex/SKILL.md"), "utf8");
+  assert.match(ui, /Typography art direction gate — six required decisions/);
+  assert.match(ui, /Choose type by product character/);
+  assert.match(ui, /Build a coherent typographic system/);
+  assert.match(ui, /Art-direct headline composition/);
+  assert.match(ui, /Match typography to the full visual direction/);
+  assert.match(ui, /Verify rendered output, not just declarations/);
+  assert.match(ui, /Polish typography through interaction and states/);
+  assert.match(ui, /Required acceptance gate for substantial UI work/);
+  assert.match(ui, /reduced-motion behavior/);
+  assert.match(skill, /six typography art-direction decisions/);
 });

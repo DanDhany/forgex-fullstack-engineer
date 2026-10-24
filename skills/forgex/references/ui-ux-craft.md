@@ -66,6 +66,29 @@ Typography and palette strongly affect perceived craft. Do not treat them as dec
 - Use comfortable body text and line lengths. Do not shrink text just to fit a dense layout; change the composition or content hierarchy instead.
 - Review actual rendered glyphs, heading wraps, line-height, and contrast at each target viewport. Font loading failure must degrade gracefully. Inspect headings at mobile width for truncated words, clipped final letters, awkward isolated words, and unintentional line breaks; fix the layout or type scale instead of hiding overflow.
 
+### Typography art direction gate — six required decisions
+
+Treat these as one connected design pass, not six disconnected checklist items. Apply the depth appropriate to the task; a major page or redesign must address all six, while a small bug fix should verify the affected parts and avoid unnecessary redesign.
+
+1. **Choose type by product character.** Inspect existing brand assets and constraints first. Define the product's intended voice (for example: editorial, technical, civic/service-oriented, playful, or operational) and explain briefly why the selected typeface supports it. Do not select a font just because it is fashionable or familiar. Verify licensing, availability, language/glyph coverage, loading behavior, and sensible system fallbacks. Never claim a font is loaded without checking the actual render or network/computed style when tools allow.
+2. **Build a coherent typographic system.** Specify roles for display, page/section headings, body, supporting copy, labels, data/table text, and code where relevant. Set responsive size ranges, line-height, weight, letter spacing, and maximum line measure intentionally; use tokens or shared styles instead of scattered one-off values. Keep families limited unless a documented brand reason warrants more. Avoid using bold, uppercase, or scale alone as a substitute for hierarchy.
+3. **Art-direct headline composition.** Review the words as shapes: line length, line breaks, rhythm, punctuation, adjacent copy, and relationship to surrounding whitespace. Prefer natural wrapping and fluid sizing; use explicit line breaks only when the intended composition remains good across breakpoints and localization. Never force a dramatic headline at the cost of awkward orphan words, clipped glyphs, or a tiny mobile text size.
+4. **Match typography to the full visual direction.** Typography must work with layout, content density, color, surfaces, imagery, iconography, and motion as one coherent system. The same default font pair and hero pattern should not be reused across unrelated products without a reason. Do not copy a recognizable designer's or product's signature style; translate general principles into a product-specific direction.
+5. **Verify rendered output, not just declarations.** Inspect the actual page at target viewports and themes. Check font loading/computed font family when browser tools permit; inspect glyph shape, clipping, line-height, contrast, zoom/reflow, long words, localization, and content variation. Compare screenshot appearance with DOM measurements. If the browser or font environment cannot be verified, label that part of QA blocked rather than passed.
+6. **Polish typography through interaction and states.** Check text during navigation changes, responsive reflow, validation errors, loading/empty/success states, dialogs, tabs, expanded/collapsed content, and hover/focus/pressed states where applicable. Transitions must not cause layout jumps, text clipping, unreadable intermediate states, or delayed access to controls. Respect reduced-motion preferences; motion should clarify a state change rather than decorate every text element.
+
+#### Required acceptance gate for substantial UI work
+
+Before calling a substantial UI implementation done, record a concise typography rationale and verify:
+- Typeface choice is product-specific and has a fallback strategy.
+- Type roles and responsive sizes are consistent and reusable.
+- Hero and section headings wrap naturally at mobile, tablet, and desktop widths.
+- Body copy remains comfortably readable; dense layouts are reorganized instead of shrinking text excessively.
+- Rendered screenshots show no clipped glyphs, awkward orphan lines, accidental truncation, or theme contrast failures.
+- Dynamic UI states and reduced-motion behavior do not break text layout or comprehension.
+
+If any check fails, revise the composition/type scale and inspect again. Do not declare the gate passed based only on source-code inspection, a design description, or an unverified screenshot. For small scoped changes, report only the relevant checks and any unverified limitations.
+
 ### Color and surfaces
 - Choose a palette with a clear role for background, raised surface, border, primary text, muted text, accent, and semantic states. Prefer tokens over scattered literal colors.
 - Dark mode should have intentional tonal depth: distinguish page background, section surfaces, cards, inputs, borders, and overlays. Avoid making every section/card the same blue-black, using pure black everywhere, or applying a strong blue tint to every surface without brand rationale. Check the page as a whole at normal brightness: if the whole site reads as one uniform navy slab, revise tonal hierarchy before adding more accent colors.

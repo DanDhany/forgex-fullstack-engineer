@@ -4,7 +4,7 @@ description: All-in-one engineering workflow for building, modifying, and verify
 compatibility: Requires repository access and test execution; browser QA, online documentation lookup, and external scanners require their own tools/configuration.
 metadata:
   author: DanDhany / ForgeX
-  version: "1.1.6"
+  version: "1.1.7"
   focus: ui-ux-first-cross-stack-consistency
 ---
 
@@ -79,7 +79,7 @@ Implement, then close the visual feedback loop:
 7. If browser/screenshot tooling is unavailable, do the strongest available source-level review and clearly report that rendered visual QA was not performed. Never claim to have seen or tested a page without evidence.
 8. Do not treat a successful build, valid JSX, or a tidy source diff as evidence that the interface looks good. Visual quality requires rendered inspection when tools permit.
 
-Use `references/ui-ux-craft.md` for the detailed procedure and `references/copywriting.md` when user-facing copy is in scope. In particular, follow its typography system, tonal palette, content-density, and mobile overflow gates. This is the default behavior for UI work, not an extra workflow the user must explicitly request. Scale the depth to task size: tiny copy or spacing changes need a lightweight review; new pages and redesigns require explicit art direction and a rendered critique/refinement pass when tools permit. Do not imitate a recognizable third-party visual style or claim that an external tool ran unless it was actually available and used.
+Use `references/ui-ux-craft.md` for the detailed procedure and `references/copywriting.md` when user-facing copy is in scope. For substantial UI work, apply all six typography art-direction decisions (product character, coherent type system, headline composition, whole-direction fit, rendered verification, and interaction/state polish), alongside its tonal palette, content-density, and mobile overflow gates. This is the default behavior for UI work, not an extra workflow the user must explicitly request. Scale the depth to task size: tiny copy or spacing changes need a lightweight review; new pages and redesigns require explicit art direction and a rendered critique/refinement pass when tools permit. Do not imitate a recognizable third-party visual style or claim that an external tool ran unless it was actually available and used.
 
 ## Step 4 — Plan proportionally
 
