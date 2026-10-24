@@ -105,6 +105,27 @@ test("UI workflow is low-prompt and requires product-specific composition for ma
 test("package and skill versions stay aligned", async () => {
   const pkg = JSON.parse(await fs.readFile(path.resolve("package.json"), "utf8"));
   const skill = await fs.readFile(path.resolve("skills/forgex/SKILL.md"), "utf8");
-  assert.equal(pkg.version, "1.1.4");
-  assert.match(skill, /version: "1.1.4"/);
+  assert.equal(pkg.version, "1.1.6");
+  assert.match(skill, /version: "1.1.6"/);
+});
+
+
+test("UI craft explicitly gates typography, palette hierarchy, and mobile overflow", async () => {
+  const ui = await fs.readFile(path.resolve("skills/forgex/references/ui-ux-craft.md"), "utf8");
+  assert.match(ui, /Typography system/);
+  assert.match(ui, /Color and surfaces/);
+  assert.match(ui, /Mobile overflow gate/);
+  assert.match(ui, /Do not solve page-wide overflow by setting `overflow-x: hidden` on the body/);
+  assert.match(ui, /A mobile screenshot where headings, navigation, buttons, body copy, or code are cut off is a failed acceptance check/);
+});
+
+
+test("UI craft requires actual viewport validation and paired mobile overflow checks", async () => {
+  const ui = await fs.readFile(path.resolve("skills/forgex/references/ui-ux-craft.md"), "utf8");
+  const skill = await fs.readFile(path.resolve("skills/forgex/SKILL.md"), "utf8");
+  assert.match(ui, /actual CSS viewport is the intended width/);
+  assert.match(ui, /documentElement\.scrollWidth <= document\.documentElement\.clientWidth/);
+  assert.match(ui, /A narrow screenshot crop of a desktop viewport is not mobile QA/);
+  assert.match(ui, /uniform navy slab/);
+  assert.match(skill, /Confirm the browser actually uses each requested CSS viewport/);
 });

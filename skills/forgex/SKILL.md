@@ -4,7 +4,7 @@ description: All-in-one engineering workflow for building, modifying, and verify
 compatibility: Requires repository access and test execution; browser QA, online documentation lookup, and external scanners require their own tools/configuration.
 metadata:
   author: DanDhany / ForgeX
-  version: "1.1.4"
+  version: "1.1.6"
   focus: ui-ux-first-cross-stack-consistency
 ---
 
@@ -79,7 +79,7 @@ Implement, then close the visual feedback loop:
 7. If browser/screenshot tooling is unavailable, do the strongest available source-level review and clearly report that rendered visual QA was not performed. Never claim to have seen or tested a page without evidence.
 8. Do not treat a successful build, valid JSX, or a tidy source diff as evidence that the interface looks good. Visual quality requires rendered inspection when tools permit.
 
-Use `references/ui-ux-craft.md` for the detailed procedure and `references/copywriting.md` when user-facing copy is in scope. This is the default behavior for UI work, not an extra workflow the user must explicitly request. Scale the depth to task size: tiny copy or spacing changes need a lightweight review; new pages and redesigns require explicit art direction and a rendered critique/refinement pass when tools permit. Do not imitate a recognizable third-party visual style or claim that an external tool ran unless it was actually available and used.
+Use `references/ui-ux-craft.md` for the detailed procedure and `references/copywriting.md` when user-facing copy is in scope. In particular, follow its typography system, tonal palette, content-density, and mobile overflow gates. This is the default behavior for UI work, not an extra workflow the user must explicitly request. Scale the depth to task size: tiny copy or spacing changes need a lightweight review; new pages and redesigns require explicit art direction and a rendered critique/refinement pass when tools permit. Do not imitate a recognizable third-party visual style or claim that an external tool ran unless it was actually available and used.
 
 ## Step 4 — Plan proportionally
 
@@ -148,7 +148,7 @@ Run the relevant subset of:
 - browser QA with real user flows and responsive viewports when browser tools are available;
 - security and regression checks proportional to risk.
 
-For UI, treat responsive layout and both themes as acceptance criteria, not optional polish. Prefer checking the running app at mobile 390×844, tablet 768×1024, and desktop 1440×900 when the browser tool supports viewport control. Check both light and dark themes at representative viewports, including text/surface/border contrast, charts and status colors, focus rings, overlays, and component states. Inspect actual data, interactions, console/network errors, horizontal overflow, focus, and error states. If theme switching is unavailable, inspect the app’s theme tokens/styles and explicitly report what could not be verified. Capture screenshots only if a real tool returns them.
+For UI, treat responsive layout and both themes as acceptance criteria, not optional polish. Prefer checking the running app at mobile 390×844, tablet 768×1024, and desktop 1440×900 when the browser tool supports viewport control. Confirm the browser actually uses each requested CSS viewport and verify document width and key element bounds; a cropped desktop screenshot is not mobile verification. Check both light and dark themes at representative viewports, including text/surface/border contrast, charts and status colors, focus rings, overlays, and component states. Inspect actual data, interactions, console/network errors, horizontal overflow, focus, and error states. If theme switching is unavailable, inspect the app’s theme tokens/styles and explicitly report what could not be verified. Capture screenshots only if a real tool returns them.
 
 When a defect appears: reproduce → record evidence → fix root cause → rerun the failed scenario → run nearby regression tests.
 

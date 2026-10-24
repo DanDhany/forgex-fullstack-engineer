@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.1.6 — Viewport-verified responsive QA
+
+- Strengthened browser QA to verify the actual CSS viewport before trusting mobile screenshots; a cropped desktop capture does not count as mobile testing.
+- Added a paired visual/DOM release gate: inspect screenshots and check document overflow plus key element bounds.
+- Tightened mobile typography checks for clipped glyphs, truncated text, and awkward headline wraps.
+- Added a dark-theme tonal hierarchy check to prevent the whole interface reading as one uniform navy surface.
+- Explicitly block claims of successful mobile QA when viewport emulation or measurements cannot be verified.
+- Updated package and skill metadata to 1.1.6.
+
+## 1.1.5 — Typography, palette, and mobile integrity gates
+
+- Added explicit typography-system guidance: deliberate type roles, controlled font pairing, intentional wrapping, readable line lengths, and checks for awkward mobile headline breaks.
+- Strengthened color art direction for tonal depth in dark mode and equally deliberate light mode; limited accent overuse and required semantic color tokens and contrast checks.
+- Added a mobile overflow release gate covering narrow 320px screens, navigation, hero layouts, code commands, tables, cards, and footer content.
+- Prohibited hiding page-wide overflow as a workaround; require fixing the overflowing element so content and controls remain reachable.
+- Made typography, color hierarchy, and clipped mobile content explicit acceptance criteria for UI tasks.
+- Updated package and skill metadata to 1.1.5.
+
 ## 1.1.4 — Low-prompt design direction and visual quality gates
 
 - Made the design workflow explicitly low-prompt: users do not need to repeat anti-slop, responsive, accessibility, or visual-QA requirements.
