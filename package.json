@@ -10,6 +10,7 @@
   },
   "scripts": {
     "start": "node ./bin/install.js",
+    "serve": "node ./src/server.js",
     "test": "node --test"
   },
   "author": "DanDhany",

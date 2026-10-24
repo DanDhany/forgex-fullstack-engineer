@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ForgeX Full-Stack Engineer v1.1.8 — AI Coding-Agent Skill</title>
+  <meta name="description" content="One practical AI coding-agent skill for full-stack engineering, product-aware UI/UX, cross-stack contracts, and durable session handoffs via WORK-STATE.md.">
+  <meta name="author" content="DanDhany">
+  <meta name="theme-color" content="#0D1117">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ForgeX Full-Stack Engineer v1.1.8">
+  <meta property="og:description" content="One practical skill for AI coding agents that build across the full stack and remember where the work left off.">
+  <meta property="og:image" content="./assets/forgex-hero.svg">
+  
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="ForgeX Full-Stack Engineer Home">
+        <img src="./assets/logo.svg" alt="ForgeX Logo" class="brand-logo" width="28" height="28">
+        <span class="brand-name">Forge<span class="brand-accent">X</span></span>
+        <span class="version-badge" title="Current Release">v1.1.8</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Main Navigation">
+        <a href="#workflow" class="nav-link">Workflow</a>
+        <a href="#why" class="nav-link">Why ForgeX</a>
+        <a href="#stacks" class="nav-link">Stacks</a>
+        <a href="#agents" class="nav-link">Agents</a>
+        <a href="#install" class="nav-link">Install</a>
+        <a href="#memory" class="nav-link">Memory Pattern</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+        <a href="./tasks.html" class="nav-link">Tasks Workbench</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Theme Toggle Button -->
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Switch theme (light, dark, system)" title="Switch theme">
+          <svg class="theme-icon icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2"></path>
+            <path d="M12 20v2"></path>
+            <path d="m4.93 4.93 1.41 1.41"></path>
+            <path d="m17.66 17.66 1.41 1.41"></path>
+            <path d="M2 12h2"></path>
+            <path d="M20 12h2"></path>
+            <path d="m6.34 17.66-1.41 1.41"></path>
+            <path d="m19.07 4.93-1.41 1.41"></path>
+          </svg>
+          <svg class="theme-icon icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+          <span class="theme-label sr-only">Toggle theme</span>
+        </button>
+
+        <!-- GitHub Link -->
+        <a href="https://github.com/DanDhany/forgex-fullstack-engineer" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-icon-text" aria-label="View ForgeX on GitHub">
+          <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+            <path d="M9 18c-4.51 2-5-2-7-2"></path>
+          </svg>
+          <span class="btn-text">GitHub</span>
+        </a>
+
+        <!-- Mobile Menu Hamburger -->
+        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open mobile navigation">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <nav class="mobile-nav-links" aria-label="Mobile Navigation">
+        <a href="#workflow" class="mobile-nav-link">Workflow</a>
+        <a href="#why" class="mobile-nav-link">Why ForgeX</a>
+        <a href="#stacks" class="mobile-nav-link">Stacks</a>
+        <a href="#agents" class="mobile-nav-link">Agents</a>
+        <a href="#install" class="mobile-nav-link">Install</a>
+        <a href="#memory" class="mobile-nav-link">Memory Pattern</a>
+        <a href="#faq" class="mobile-nav-link">FAQ</a>
+        <a href="./tasks.html" class="mobile-nav-link">Tasks Workbench</a>
+        <a href="https://github.com/DanDhany/forgex-fullstack-engineer" target="_blank" rel="noopener noreferrer" class="mobile-nav-link external-link">
+          GitHub Repository &rarr;
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero Section: Architectural Statement & Live Diagnostic -->
+    <section class="hero-section">
+      <div class="container">
+        <!-- Blueprint Header Tagline -->
+        <div class="hero-header-meta">
+          <div class="meta-tag-spec">
+            <span class="status-indicator"></span>
+            <span>SKILL SPECIFICATION &bull; V1.1.8</span>
+          </div>
+          <div class="meta-separator" aria-hidden="true"></div>
+          <div class="meta-tag-note">CROSS-STACK ORCHESTRATOR FOR AI CODING AGENTS</div>
+        </div>
+
+        <div class="hero-grid">
+          <!-- Left Column: Editorial Proposition & Fast Command -->
+          <div class="hero-content">
+            <h1 class="hero-title">
+              Stop re-discovering the codebase.<br>
+              <span class="title-highlight">Build full-stack software with durable memory.</span>
+            </h1>
+
+            <p class="hero-description">
+              ForgeX is one focused skill that equips AI coding agents with an end-to-end discipline: inspect existing repositories before editing, enforce product-aware UI craft, verify real API-to-database contracts, and persist progress in <code>WORK-STATE.md</code> so context switches never erase work.
+            </p>
+
+            <!-- Command Strip -->
+            <div class="command-strip" role="region" aria-label="Quick installation command">
+              <div class="command-strip-main">
+                <span class="command-prompt">$</span>
+                <code class="command-code" id="heroInstallCode">npx skills add DanDhany/forgex-fullstack-engineer --skill forgex -g</code>
+              </div>
+              <button type="button" class="btn btn-copy" id="heroCopyBtn" data-copy-target="heroInstallCode" aria-label="Copy installation command">
+                <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+                  <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+                </svg>
+                <span class="copy-label">Copy</span>
+              </button>
+            </div>
+
+            <!-- CTA Actions & Telemetry Metrics -->
+            <div class="hero-footer-row">
+              <div class="cta-actions">
+                <a href="#workflow" class="btn btn-primary">See 5-Step Pipeline &darr;</a>
+                <a href="#agents" class="btn btn-ghost">Supported Agents</a>
+              </div>
+              <div class="hero-telemetry-metrics">
+                <span class="metric-item"><strong>15/15</strong> passing tests</span>
+                <span class="metric-divider">&bull;</span>
+                <span class="metric-item"><strong>8</strong> agent profiles</span>
+                <span class="metric-divider">&bull;</span>
+                <span class="metric-item"><strong>Zero</strong> runtime bloat</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Diagnostic Terminal -->
+          <div class="hero-diagnostic">
+            <div class="diagnostic-window" role="region" aria-label="Live Diagnostic Telemetry">
+              <div class="diagnostic-topbar">
+                <div class="diagnostic-indicator">
+                  <span class="indicator-pip active"></span>
+                  <span class="diagnostic-filename">telemetry-feed</span>
+                </div>
+                <div class="terminal-tabs" role="tablist" aria-label="Diagnostic views">
+                  <button type="button" class="tab-btn active" role="tab" aria-selected="true" id="tab-term" aria-controls="panel-term" data-tab="panel-term">
+                    agent-terminal.sh
+                  </button>
+                  <button type="button" class="tab-btn" role="tab" aria-selected="false" id="tab-state" aria-controls="panel-state" data-tab="panel-state">
+                    WORK-STATE.md
+                  </button>
+                  <button type="button" class="tab-btn" role="tab" aria-selected="false" id="tab-contract" aria-controls="panel-contract" data-tab="panel-contract">
+                    contract-trace.json
+                  </button>
+                </div>
+              </div>
+
+              <div class="diagnostic-display terminal-body">
+                <!-- Panel 1: Agent Terminal -->
+                <div class="tab-panel active" id="panel-term" role="tabpanel" aria-labelledby="tab-term">
+                  <pre class="code-block"><code><span class="c-dim"># Step 1: Context recovery from working memory</span>
+<span class="c-accent">$</span> <span class="c-cyan">git status --short --branch</span>
+<span class="c-green">## feature/orders-sync...origin/feature/orders-sync</span>
+<span class="c-dim">&gt; Read WORK-STATE.md: checkpoint verified. Dirty files preserved.</span>
+
+<span class="c-dim"># Step 2: Cross-stack release gate analysis</span>
+<span class="c-accent">&gt;</span> <span class="c-yellow">CONTRACT TRACE:</span> React Hook &rarr; POST /api/orders &rarr; DB::transaction
+<span class="c-red">&times; MISMATCH DETECTED:</span>
+  Client Schema:  <span class="c-cyan">{ status: "paid" | "pending" }</span>
+  Backend Model:  <span class="c-red">{ order_status: "PAID" | "PENDING" }</span>
+<span class="c-green">&check; Contract aligned in shared DTO without inventing fake mocks.</span>
+
+<span class="c-dim"># Step 3: Observed verification evidence</span>
+<span class="c-accent">$</span> <span class="c-cyan">npm test</span>
+<span class="c-green">&check; 15 unit/contract tests passed (186ms).</span>
+
+<span class="c-dim"># Step 4: Durable session handoff persistence</span>
+<span class="c-accent">&gt;</span> Recorded diff &amp; verified next step in <span class="c-cyan">WORK-STATE.md</span>.
+<span class="c-green">&check; Zero rediscovery needed for the next agent session.</span></code></pre>
+                </div>
+
+                <!-- Panel 2: WORK-STATE.md -->
+                <div class="tab-panel" id="panel-state" role="tabpanel" aria-labelledby="tab-state" hidden>
+                  <pre class="code-block"><code><span class="c-dim"># WORK-STATE.md (Persistent Memory Checkpoint)</span>
+<span class="c-accent">&gt;</span> <span class="c-cyan">Updated:</span> 2026-10-24 &bull; <span class="c-green">Status:</span> Ready for verification
+
+<span class="c-yellow">## Current goal</span>
+Implement payment idempotency lock and wire client retry boundary.
+
+<span class="c-yellow">## Current state</span>
+- <span class="c-green">Done:</span> Redis distributed lock middleware, DB migration, typed DTO.
+- <span class="c-cyan">In progress:</span> PaymentButton disabled timeout on 429 status.
+- <span class="c-dim">Verified:</span> php artisan test --filter=IdempotencyTest (5/5 PASS).
+
+<span class="c-yellow">## Files touched</span>
+- <span class="c-cyan">app/Http/Middleware/Idempotency.php</span> (atomic Redis lock)
+- <span class="c-cyan">resources/js/Components/PaymentButton.tsx</span> (UI retry state)
+
+<span class="c-yellow">## Resume prompt</span>
+Run Playwright browser QA on mobile 390px to confirm error bounds.</code></pre>
+                </div>
+
+                <!-- Panel 3: contract-trace.json -->
+                <div class="tab-panel" id="panel-contract" role="tabpanel" aria-labelledby="tab-contract" hidden>
+                  <pre class="code-block"><code>{
+  <span class="c-cyan">"pipeline"</span>: <span class="c-green">"ui_to_database_invariant"</span>,
+  <span class="c-cyan">"stages"</span>: [
+    { <span class="c-yellow">"layer"</span>: <span class="c-dim">"UI Event"</span>, <span class="c-yellow">"action"</span>: <span class="c-green">"submitOrder()"</span>, <span class="c-yellow">"loadingState"</span>: true },
+    { <span class="c-yellow">"layer"</span>: <span class="c-dim">"Client Request"</span>, <span class="c-yellow">"route"</span>: <span class="c-green">"POST /api/v1/orders"</span> },
+    { <span class="c-yellow">"layer"</span>: <span class="c-dim">"Validation"</span>, <span class="c-yellow">"validator"</span>: <span class="c-green">"StoreOrderRequest.php"</span> },
+    { <span class="c-yellow">"layer"</span>: <span class="c-dim">"Domain/DB"</span>, <span class="c-yellow">"boundary"</span>: <span class="c-green">"DB::transaction(READ_COMMITTED)"</span> },
+    { <span class="c-yellow">"layer"</span>: <span class="c-dim">"Error Schema"</span>, <span class="c-yellow">"format"</span>: <span class="c-green">"{ code, message, retryable }"</span> }
+  ],
+  <span class="c-cyan">"verification"</span>: <span class="c-green">"VERIFIED_FULL_PATH_TRACE"</span>
+}</code></pre>
+                </div>
+              </div>
+
+              <div class="diagnostic-footer">
+                <span class="footer-meta-item"><span class="pip-green"></span> Evidence-First Guardrails Active</span>
+                <span class="footer-meta-rule">SKILL.md &bull; Cross-Stack Release Gate</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visual Workflow Pipeline Section -->
+    <section class="section workflow-section" id="workflow">
+      <div class="container">
+        <div class="section-lead-block">
+          <div class="lead-number">01 / PROCESS</div>
+          <div class="lead-content">
+            <h2 class="section-title">The 5-Step Engineering Pipeline</h2>
+            <p class="section-subtitle">
+              Instead of jumping blindly into editing, ForgeX guides the agent through five deliberate phases: recovering context, crafting responsive UI, tracing contracts across layers, gathering real proof, and persisting handoff memory.
+            </p>
+          </div>
+        </div>
+
+        <!-- Continuous Pipeline Rail -->
+        <div class="pipeline-schematic">
+          <div class="pipeline-track" role="tablist" aria-label="Workflow Phases">
+            <button type="button" class="pipeline-station step-nav-btn active" role="tab" aria-selected="true" id="step-btn-1" aria-controls="step-panel-1" data-step="1">
+              <span class="station-index">01</span>
+              <span class="station-label">
+                <strong class="station-name">Inspect</strong>
+                <span class="station-sub">Context &amp; Git</span>
+              </span>
+            </button>
+
+            <button type="button" class="pipeline-station step-nav-btn" role="tab" aria-selected="false" id="step-btn-2" aria-controls="step-panel-2" data-step="2">
+              <span class="station-index">02</span>
+              <span class="station-label">
+                <strong class="station-name">Design</strong>
+                <span class="station-sub">Product Craft</span>
+              </span>
+            </button>
+
+            <button type="button" class="pipeline-station step-nav-btn" role="tab" aria-selected="false" id="step-btn-3" aria-controls="step-panel-3" data-step="3">
+              <span class="station-index">03</span>
+              <span class="station-label">
+                <strong class="station-name">Connect</strong>
+                <span class="station-sub">Stack Contracts</span>
+              </span>
+            </button>
+
+            <button type="button" class="pipeline-station step-nav-btn" role="tab" aria-selected="false" id="step-btn-4" aria-controls="step-panel-4" data-step="4">
+              <span class="station-index">04</span>
+              <span class="station-label">
+                <strong class="station-name">Verify</strong>
+                <span class="station-sub">Observed Proof</span>
+              </span>
+            </button>
+
+            <button type="button" class="pipeline-station step-nav-btn" role="tab" aria-selected="false" id="step-btn-5" aria-controls="step-panel-5" data-step="5">
+              <span class="station-index">05</span>
+              <span class="station-label">
+                <strong class="station-name">Handoff</strong>
+                <span class="station-sub">Living Memory</span>
+              </span>
+            </button>
+          </div>
+
+          <!-- Phase Details Display -->
+          <div class="pipeline-view-pane">
+            <!-- Phase 1: Inspect -->
+            <div class="step-panel active" id="step-panel-1" role="tabpanel" aria-labelledby="step-btn-1">
+              <div class="pipeline-split">
+                <div class="pipeline-narrative">
+                  <span class="pipeline-phase-badge">Phase 01 &bull; Recovery &amp; Safety</span>
+                  <h3 class="pipeline-heading">Inspect Before Editing &amp; Preserve User Work</h3>
+                  <p class="pipeline-text">
+                    When an agent blindly modifies files without checking Git, it risks wiping uncommitted user work or assuming obsolete framework versions. ForgeX reads <code>WORK-STATE.md</code> first, inspects Git status, and diagnoses the repository before making any code change.
+                  </p>
+                  <div class="pipeline-rules">
+                    <div class="rule-row">
+                      <span class="rule-check">&check;</span>
+                      <span>Checks <code>git status --short --branch</code> and preserves in-progress modifications.</span>
+                    </div>
+                    <div class="rule-row">
+                      <span class="rule-check">&check;</span>
+                      <span>Resumes from established handoff file rather than wasting tokens on re-indexing.</span>
+                    </div>
+                    <div class="rule-row">
+                      <span class="rule-check">&check;</span>
+                      <span>Verifies exact versions from lockfiles (Laravel, React, Node, Python).</span>
+                    </div>
+                    <div class="rule-row">
+                      <span class="rule-check">&check;</span>
+                      <span>Scales planning depth directly proportional to task risk.</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="pipeline-terminal">
+                  <div class="terminal-bar">
+                    <span class="terminal-tag">git-inspection</span>
+                    <span class="terminal-file">cli-recovery.log</span>
+                  </div>
+                  <pre class="terminal-pre"><code><span class="c-accent">$</span> <span class="c-cyan">git status --short --branch</span>
+## main...origin/main
+ M resources/js/Pages/Checkout.tsx <span class="c-dim">(user uncommitted)</span>
+?? app/Services/StripeWebhook.php
+
+<span class="c-yellow">&gt; ForgeX Rule:</span>
+Preserve all uncommitted user work.
+Read <span class="c-cyan">WORK-STATE.md</span> &rarr; active module identified:
+<span class="c-green">Checkout idempotency flow. Zero blind rediscovery.</span></code></pre>
+                </div>
+              </div>
+            </div>
+
+            <!-- Phase 2: Design -->
+            <div class="step-panel" id="step-panel-2" role="tabpanel" aria-labelledby="step-btn-2" hidden>
+              <div class="pipeline-split">
+                <div class="pipeline-narrative">
+                  <span class="pipeline-phase-badge">Phase 02 &bull; Product Craft</span>
+                  <h3 class="pipeline-heading">Product-Aware Art Direction &amp; Anti-Slop Gates</h3>
+                  <p class="pipeline-text">
+                    ForgeX treats UI/UX as a structural engineering discipline. It forbids agents from pasting generic SaaS templates, neon glows on dark navy, or squeezing desktop UI into mobile screens. Every substantial UI task requires a concrete design thesis before implementation.
+                  </p>
+                  <div class="pipeline-rules">
+                    <div class="rule-row">
+                      <span class="rule-check">&check;</span>
+                      <span><strong>6-Part Typography Gate:</strong> character, system, headline wrap, harmony, render check, state polish.</span>
+                    </div>
+                    <div class="rule-row">
+                      <span class="rule-check">&check;</span>
+                      <span><strong>Tonal Hierarchy:</strong> Designed light palettes (warm ivory/stone) &amp; tiered dark surfaces, not flat black slabs.</span>
+                    </div>
+                    <div class="rule-row">
+                      <span class="rule-check">&check;</span>
+                      <span><strong>Mobile Overflow Gate:</strong> <code>scrollWidth &le; clientWidth</code> validated across 320/360/390/430px.</span>
+                    </div>
+                    <div class="rule-row">
+                      <span class="rule-check">&check;</span>
+                      <span>Complete interactive states: hover, focus-visible, active, disabled, error, loading.</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="pipeline-terminal">
+                  <div class="terminal-bar">
+                    <span class="terminal-tag">tokens-spec</span>
+                    <span class="terminal-file">design-tokens.css</span>
+                  </div>
+                  <pre class="terminal-pre"><code><span class="c-dim">/* Design Thesis: Precision Tooling */</span>
+:root {
+  <span class="c-cyan">--color-canvas:</span> <span class="c-green">#F8F7F4</span>; <span class="c-dim">/* Warm ivory */</span>
+  <span class="c-cyan">--color-surface:</span> <span class="c-green">#FFFFFF</span>;
+  <span class="c-cyan">--color-brand:</span> <span class="c-yellow">#EA580C</span>; <span class="c-dim">/* Forge ember */</span>
+  <span class="c-cyan">--type-display:</span> clamp(1.875rem, 4vw, 3.25rem);
+}
+[data-theme="dark"] {
+  <span class="c-cyan">--color-canvas:</span> <span class="c-green">#0D1117</span>; <span class="c-dim">/* Charcoal iron */</span>
+  <span class="c-cyan">--color-surface:</span> <span class="c-green">#161B22</span>; <span class="c-dim">/* Structural steel */</span>
+}</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <!-- Phase 3: Connect -->
+            <div class="step-panel" id="step-panel-3" role="tabpanel" aria-labelledby="step-btn-3" hidden>
+              <div class="pipeline-split">
+                <div class="pipeline-narrative">
+                  <span class="pipeline-phase-badge">Phase 03 &bull; Integration</span>
+                  <h3 class="pipeline-heading">Cross-Stack Contracts: Trace UI to Database</h3>
+                  <p class="pipeline-text">
+                    A feature is not finished if the UI connects to a fake success mock, an outdated schema, or swallowed 500 errors. ForgeX traces the complete contract path across client and server boundaries before declaring completion.
+                  </p>
+                  <div class="pipeline-rules">
+                    <div class="rule-row">
+                      <span class="rule-check">&check;</span>
+                      <span><strong>Full Pipeline Trace:</strong> UI Event &rarr; Client Request &rarr; Route &rarr; Auth &rarr; Validation &rarr; Domain Rule &rarr; DB Transaction &rarr; Response &rarr; UI State.</span>
+                    </div>
+                    <div class="rule-row">
+                      <span class="rule-check">&check;</span>
+                      <span>Prohibits hardcoded production data, stale mocks, and swallowed errors.</span>
+                    </div>
+                    <div class="rule-row">
+                      <span class="rule-check">&check;</span>
+                      <span>Handles loading, empty, validation, 401, 403, 429, and 500 error states.</span>
+                    </div>
+                    <div class="rule-row">
+                      <span class="rule-check">&check;</span>
+                      <span>Enforces server-side validation and authorization policies.</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="pipeline-terminal">
+                  <div class="terminal-bar">
+                    <span class="terminal-tag">contract-trace</span>
+                    <span class="terminal-file">pipeline-trace.txt</span>
+                  </div>
+                  <pre class="terminal-pre"><code><span class="c-yellow">1. UI Event</span>       &rarr; PaymentButton: onClick()
+<span class="c-yellow">2. Client State</span>   &rarr; useMutation({ idempotencyKey })
+<span class="c-yellow">3. Route</span>          &rarr; POST /api/v1/checkout
+<span class="c-yellow">4. Validation</span>     &rarr; CheckoutRequest (strict rules)
+<span class="c-yellow">5. Domain &amp; DB</span>    &rarr; DB::transaction(lock: PESSIMISTIC)
+<span class="c-yellow">6. Error Contract</span> &rarr; { code: "CARD_DECLINED", retryable: false }
+<span class="c-green">&check; Release Gate: Complete path validated.</span></code></pre>
+                </div>
+              </div>
+            </div>
+
+            <!-- Phase 4: Verify -->
+            <div class="step-panel" id="step-panel-4" role="tabpanel" aria-labelledby="step-btn-4" hidden>
+              <div class="pipeline-split">
+                <div class="pipeline-narrative">
+                  <span class="pipeline-phase-badge">Phase 04 &bull; Evidence</span>
+                  <h3 class="pipeline-heading">Evidence Before Claims &amp; Honest Limits</h3>
+                  <p class="pipeline-text">
+                    Agents frequently declare “I tested this and it works perfectly” without ever executing a test runner. ForgeX enforces evidence-first discipline: real test execution, real browser viewport validation, and honest reporting when tools are unavailable.
+                  </p>
+                  <div class="pipeline-rules">
+                    <div class="rule-row">
+                      <span class="rule-check">&check;</span>
+                      <span>Never fabricates test counts, screenshots, or tool outputs.</span>
+                    </div>
+                    <div class="rule-row">
+                      <span class="rule-check">&check;</span>
+                      <span>Validates real viewports: mobile (320, 360, 390, 430), tablet (768), desktop (1280, 1440).</span>
+                    </div>
+                    <div class="rule-row">
+                      <span class="rule-check">&check;</span>
+                      <span>Asserts actual CSS viewport dimensions, not scaled desktop crops.</span>
+                    </div>
+                    <div class="rule-row">
+                      <span class="rule-check">&check;</span>
+                      <span>Marks missing browser tools as <strong>BLOCKED</strong> rather than faking success.</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="pipeline-terminal">
+                  <div class="terminal-bar">
+                    <span class="terminal-tag">verification</span>
+                    <span class="terminal-file">evidence-report.txt</span>
+                  </div>
+                  <pre class="terminal-pre"><code><span class="c-accent">$</span> <span class="c-cyan">node --test</span>
+<span class="c-green">&check; 15/15 tests passing (186ms)</span>
+
+<span class="c-accent">$</span> <span class="c-cyan">node test/browser-qa.js</span>
+<span class="c-green">&check; Viewport 320x740: scrollWidth &le; clientWidth</span>
+<span class="c-green">&check; Viewport 390x844: Dark mode contrast OK</span>
+<span class="c-green">&check; Viewport 768x1024: Navigation reflow OK</span>
+<span class="c-green">&check; Viewport 1440x900: Full typography OK</span>
+<span class="c-green">&check; Screenshots saved to site/screenshots/</span></code></pre>
+                </div>
+              </div>
+            </div>
+
+            <!-- Phase 5: Handoff -->
+            <div class="step-panel" id="step-panel-5" role="tabpanel" aria-labelledby="step-btn-5" hidden>
+              <div class="pipeline-split">
+                <div class="pipeline-narrative">
+                  <span class="pipeline-phase-badge">Phase 05 &bull; Continuity</span>
+                  <h3 class="pipeline-heading">Durable Handoff via WORK-STATE.md</h3>
+                  <p class="pipeline-text">
+                    Token exhaustion and context switches break development momentum. ForgeX ends every non-trivial task by updating <code>WORK-STATE.md</code> with exact completed work, decisions made, verified outcomes, open blockers, and a ready-to-run resume prompt.
+                  </p>
+                  <div class="pipeline-rules">
+                    <div class="rule-row">
+                      <span class="rule-check">&check;</span>
+                      <span>Maintains one concise file: <code>WORK-STATE.md</code> (no duplicate timestamped clutter).</span>
+                    </div>
+                    <div class="rule-row">
+                      <span class="rule-check">&check;</span>
+                      <span>Records uncommitted Git diff state and modified paths.</span>
+                    </div>
+                    <div class="rule-row">
+                      <span class="rule-check">&check;</span>
+                      <span>Formulates the single next actionable step for the subsequent session.</span>
+                    </div>
+                    <div class="rule-row">
+                      <span class="rule-check">&check;</span>
+                      <span>Reduces context window re-discovery token cost by up to 80%.</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="pipeline-terminal">
+                  <div class="terminal-bar">
+                    <span class="terminal-tag">handoff-state</span>
+                    <span class="terminal-file">WORK-STATE.md</span>
+                  </div>
+                  <pre class="terminal-pre"><code><span class="c-yellow">## Resume prompt for next agent</span>
+Resuming checkout idempotency feature.
+1. Read <span class="c-cyan">WORK-STATE.md</span> &amp; <span class="c-cyan">app/Http/Middleware/Idempotency.php</span>.
+2. Verified: unit tests pass; Redis lock acquired.
+3. Next step: Implement PaymentButton retry UI
+   and run browser QA on mobile 390px.
+<span class="c-dim">Do not re-explore repository from scratch.</span></code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why ForgeX: Editorial Diagnostic Ledger (Not 4 identical cards) -->
+    <section class="section why-section" id="why">
+      <div class="container">
+        <div class="section-lead-block">
+          <div class="lead-number">02 / COMPARISON</div>
+          <div class="lead-content">
+            <h2 class="section-title">The Engineering Ledger: Drift vs Invariants</h2>
+            <p class="section-subtitle">
+              AI models generate competent code snippets, but stumble on product continuity and full-stack alignment. Here is how ForgeX replaces common agent failure modes with strict engineering contracts.
+            </p>
+          </div>
+        </div>
+
+        <!-- Editorial Ledger Table -->
+        <div class="diagnostic-ledger">
+          <div class="ledger-header">
+            <div class="ledger-col-problem">COMMON AGENT FAILURE MODES</div>
+            <div class="ledger-col-solution">FORGEX SYSTEMIC INVARIANT</div>
+          </div>
+
+          <!-- Ledger Row 1: Amnesia -->
+          <div class="ledger-row">
+            <div class="ledger-problem">
+              <div class="ledger-label-danger">&times; Context Window Amnesia</div>
+              <p>When the context window runs out, the replacement session starts blind. It re-indexes the entire repository, invents conflicting conventions, or overwrites working code.</p>
+            </div>
+            <div class="ledger-solution">
+              <div class="ledger-label-success">&check; Durable Handoff via WORK-STATE.md</div>
+              <p>Maintains a structured, single handoff file documenting verified outcomes, touched files, open blockers, and the exact next action. A new agent resumes in 10 seconds.</p>
+            </div>
+          </div>
+
+          <!-- Ledger Row 2: Slop UI -->
+          <div class="ledger-row">
+            <div class="ledger-problem">
+              <div class="ledger-label-danger">&times; Generic "AI Slop" Design</div>
+              <p>Every generated page looks identical: centered hero, purple/blue neon glows on dark navy, unstyled light mode, and desktop cards overflowing off the screen on phones.</p>
+            </div>
+            <div class="ledger-solution">
+              <div class="ledger-label-success">&check; Product-Aware Craft &amp; Viewport Gates</div>
+              <p>Enforces a 6-part typography gate, designed light (warm ivory/stone) and dark palettes, and asserts <code>scrollWidth &le; clientWidth</code> across 320, 360, 390, and 430px viewports.</p>
+            </div>
+          </div>
+
+          <!-- Ledger Row 3: Ghost Contracts -->
+          <div class="ledger-row">
+            <div class="ledger-problem">
+              <div class="ledger-label-danger">&times; Disconnected Cross-Stack Contracts</div>
+              <p>The frontend interface looks complete, but calls an unvalidated endpoint, assumes hardcoded fake JSON, ignores database transactions, or silently swallows server errors.</p>
+            </div>
+            <div class="ledger-solution">
+              <div class="ledger-label-success">&check; End-to-End Contract Release Gate</div>
+              <p>Features are traced from UI event &rarr; client state &rarr; validation &rarr; DB transaction &rarr; response schema &rarr; UI error boundary. Stale mocks are treated as release blockers.</p>
+            </div>
+          </div>
+
+          <!-- Ledger Row 4: Hallucination -->
+          <div class="ledger-row">
+            <div class="ledger-problem">
+              <div class="ledger-label-danger">&times; Hallucinated Verification</div>
+              <p>The agent confidently asserts “all tests passed and the UI looks great on mobile,” even though it never executed a test runner or inspected a rendered viewport.</p>
+            </div>
+            <div class="ledger-solution">
+              <div class="ledger-label-success">&check; Evidence-First Guardrails</div>
+              <p>Requires observed command output and real browser tool validation. If tools are missing, the agent honestly reports the check as BLOCKED rather than fabricating success.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stacks Section: Modular Architecture Shelf -->
+    <section class="section stacks-section" id="stacks">
+      <div class="container">
+        <div class="section-lead-block">
+          <div class="lead-number">03 / ECOSYSTEMS</div>
+          <div class="lead-content">
+            <h2 class="section-title">Multi-Stack Modular Support</h2>
+            <p class="section-subtitle">
+              ForgeX adapts to real-world applications where backend frameworks, client-side UI, and relational databases meet.
+            </p>
+          </div>
+        </div>
+
+        <div class="stack-architecture-shelf">
+          <!-- Stack 1 -->
+          <div class="shelf-module">
+            <div class="shelf-tag">BACKEND / ORM</div>
+            <h3 class="shelf-title">PHP + Laravel</h3>
+            <p class="shelf-desc">REST/GraphQL endpoints, form request validation, authorization policies, Eloquent transaction boundaries, and migrations.</p>
+            <div class="shelf-specs">
+              <code>FormRequests</code> &bull; <code>Eloquent</code> &bull; <code>Artisan</code>
+            </div>
+          </div>
+
+          <!-- Stack 2 -->
+          <div class="shelf-module">
+            <div class="shelf-tag">FRONTEND / UI</div>
+            <h3 class="shelf-title">TypeScript + React</h3>
+            <p class="shelf-desc">Responsive layouts, accessible states, client-side query caching, strictly typed DTO integration, and reusable design tokens.</p>
+            <div class="shelf-specs">
+              <code>Strict Types</code> &bull; <code>Hooks</code> &bull; <code>Zero-Overflow</code>
+            </div>
+          </div>
+
+          <!-- Stack 3 -->
+          <div class="shelf-module">
+            <div class="shelf-tag">ASYNC / API</div>
+            <h3 class="shelf-title">Python + FastAPI</h3>
+            <p class="shelf-desc">Asynchronous API endpoints, Pydantic v2 validation schemas, dependency injection, and contract testing with OpenAPI specs.</p>
+            <div class="shelf-specs">
+              <code>Pydantic v2</code> &bull; <code>Async</code> &bull; <code>OpenAPI</code>
+            </div>
+          </div>
+
+          <!-- Stack 4 -->
+          <div class="shelf-module">
+            <div class="shelf-tag">TOOLING / RUNTIME</div>
+            <h3 class="shelf-title">Node.js &amp; Tooling</h3>
+            <p class="shelf-desc">Zero-dependency CLIs, build pipelines, native test runners (<code>node --test</code>), and Playwright browser automation suites.</p>
+            <div class="shelf-specs">
+              <code>Native Test</code> &bull; <code>Playwright</code> &bull; <code>ESM</code>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Supported Agents & Streamlined Command Console -->
+    <section class="section install-section" id="agents">
+      <div class="container">
+        <div class="section-lead-block">
+          <div class="lead-number">04 / COMPATIBILITY &amp; SETUP</div>
+          <div class="lead-content">
+            <h2 class="section-title">Supported Agents &amp; Installation</h2>
+            <p class="section-subtitle">
+              ForgeX packages one portable skill into the canonical directories of your coding agent. Select your agent below for exact directory mappings and copyable commands.
+            </p>
+          </div>
+        </div>
+
+        <div class="command-deck" id="install">
+          <!-- Horizontal Agent Selector Bar -->
+          <div class="deck-agent-nav" role="tablist" aria-label="Select Coding Agent">
+            <button type="button" class="agent-tab active" role="tab" aria-selected="true" data-agent="codex">
+              <span class="tab-primary">OpenAI Codex</span>
+              <span class="tab-secondary">$forgex</span>
+            </button>
+            <button type="button" class="agent-tab" role="tab" aria-selected="false" data-agent="claude">
+              <span class="tab-primary">Claude Code</span>
+              <span class="tab-secondary">/forgex</span>
+            </button>
+            <button type="button" class="agent-tab" role="tab" aria-selected="false" data-agent="antigravity">
+              <span class="tab-primary">Antigravity</span>
+              <span class="tab-secondary">/forgex</span>
+            </button>
+            <button type="button" class="agent-tab" role="tab" data-agent="cursor">
+              <span class="tab-primary">Cursor</span>
+              <span class="tab-secondary">Skills</span>
+            </button>
+            <button type="button" class="agent-tab" role="tab" data-agent="copilot">
+              <span class="tab-primary">GitHub Copilot</span>
+              <span class="tab-secondary">Skills</span>
+            </button>
+            <button type="button" class="agent-tab" role="tab" data-agent="gemini">
+              <span class="tab-primary">Gemini CLI</span>
+              <span class="tab-secondary">Skills</span>
+            </button>
+            <button type="button" class="agent-tab" role="tab" data-agent="windsurf">
+              <span class="tab-primary">Windsurf</span>
+              <span class="tab-secondary">Skills</span>
+            </button>
+            <button type="button" class="agent-tab" role="tab" data-agent="opencode">
+              <span class="tab-primary">OpenCode</span>
+              <span class="tab-secondary">Skills</span>
+            </button>
+          </div>
+
+          <!-- Dynamic Console Body -->
+          <div class="deck-console">
+            <div class="console-meta-bar">
+              <div class="console-agent-heading">
+                <h3 class="agent-active-title" id="activeAgentTitle">OpenAI Codex</h3>
+                <span class="agent-invocation-pill" id="activeAgentInvocation">Invocation: <code>$forgex</code> in prompt</span>
+              </div>
+              <div class="agent-badge-notes" id="activeAgentNotes">
+                Configured with <code>allow_implicit_invocation: false</code> for deliberate control.
+              </div>
+            </div>
+
+            <!-- Path Callouts -->
+            <div class="console-paths">
+              <div class="path-item">
+                <span class="path-type">Project-Local Directory:</span>
+                <code class="path-val" id="activeAgentProject">.agents/skills/forgex</code>
+              </div>
+              <div class="path-item">
+                <span class="path-type">Global Directory:</span>
+                <code class="path-val" id="activeAgentGlobal">~/.agents/skills/forgex</code>
+              </div>
+            </div>
+
+            <!-- Commands Execution Deck -->
+            <div class="console-commands-grid">
+              <!-- Method 1: Skills CLI -->
+              <div class="command-channel">
+                <div class="channel-title">
+                  <span>Method 1 &bull; Skills CLI (Recommended)</span>
+                </div>
+                <p class="channel-desc">Downloads directly from the public GitHub repository into your agent's configured directory.</p>
+                <div class="command-terminal-box">
+                  <div class="terminal-cmd-line">
+                    <span class="line-label">Global:</span>
+                    <div class="line-inner">
+                      <code class="cmd-text" id="cmdSkillsCliGlobal">npx skills add DanDhany/forgex-fullstack-engineer --skill forgex -g</code>
+                      <button type="button" class="btn btn-copy-sm" data-copy-target="cmdSkillsCliGlobal" aria-label="Copy global install command">Copy</button>
+                    </div>
+                  </div>
+                  <div class="terminal-cmd-line">
+                    <span class="line-label">Local:</span>
+                    <div class="line-inner">
+                      <code class="cmd-text" id="cmdSkillsCliLocal">npx skills add DanDhany/forgex-fullstack-engineer --skill forgex</code>
+                      <button type="button" class="btn btn-copy-sm" data-copy-target="cmdSkillsCliLocal" aria-label="Copy project install command">Copy</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Method 2: Bundled TUI Installer -->
+              <div class="command-channel">
+                <div class="channel-title">
+                  <span>Method 2 &bull; Bundled ForgeX TUI Installer</span>
+                </div>
+                <p class="channel-desc">Interactive terminal UI with destination conflict detection, agent picker, and dry-run preview.</p>
+                <div class="command-terminal-box">
+                  <div class="terminal-cmd-line">
+                    <span class="line-label">Interactive:</span>
+                    <div class="line-inner">
+                      <code class="cmd-text" id="cmdTuiInstall">node ./bin/install.js</code>
+                      <button type="button" class="btn btn-copy-sm" data-copy-target="cmdTuiInstall" aria-label="Copy installer command">Copy</button>
+                    </div>
+                  </div>
+                  <div class="terminal-cmd-line">
+                    <span class="line-label">Dry-run:</span>
+                    <div class="line-inner">
+                      <code class="cmd-text" id="cmdTuiDry">node ./bin/install.js --dry-run</code>
+                      <button type="button" class="btn btn-copy-sm" data-copy-target="cmdTuiDry" aria-label="Copy dry run command">Copy</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="console-notice">
+              <span class="notice-icon">&iexcl;</span>
+              <span>The installer downloads canonical skill files from GitHub. It does not automatically install external browser tools, databases, or MCP servers. Node.js 20 or newer is required.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Memory Pattern: The Repository Spec Tree -->
+    <section class="section memory-section" id="memory">
+      <div class="container">
+        <div class="section-lead-block">
+          <div class="lead-number">05 / PERSISTENT MEMORY</div>
+          <div class="lead-content">
+            <h2 class="section-title">The Project Memory Architecture</h2>
+            <p class="section-subtitle">
+              Instead of scattering dozens of disconnected markdown notes, ForgeX establishes an intentional repository tree of seven source-of-truth documents.
+            </p>
+          </div>
+        </div>
+
+        <!-- Repository File Tree Manifest -->
+        <div class="repository-spec-tree">
+          <div class="tree-header">
+            <span class="tree-root-label">project-root/</span>
+            <span class="tree-meta">Compact Source of Truth Baseline</span>
+          </div>
+
+          <div class="tree-items">
+            <!-- File 1 -->
+            <div class="tree-row">
+              <div class="tree-path">
+                <span class="tree-branch">&boxvr;&HorizontalLine;</span>
+                <code class="tree-file">product.md</code>
+              </div>
+              <div class="tree-role">What are we building, for whom, and why? Invariant scope and user goals.</div>
+            </div>
+
+            <!-- File 2 -->
+            <div class="tree-row">
+              <div class="tree-path">
+                <span class="tree-branch">&boxvr;&HorizontalLine;</span>
+                <code class="tree-file">system.md</code>
+              </div>
+              <div class="tree-role">How do components, services, and external integrations communicate and fail safely?</div>
+            </div>
+
+            <!-- File 3 -->
+            <div class="tree-row">
+              <div class="tree-path">
+                <span class="tree-branch">&boxvr;&HorizontalLine;</span>
+                <code class="tree-file">design.md</code>
+              </div>
+              <div class="tree-role">UI craft rules, typography scale, light/dark tonal tokens, and responsive gates.</div>
+            </div>
+
+            <!-- File 4 -->
+            <div class="tree-row">
+              <div class="tree-path">
+                <span class="tree-branch">&boxvr;&HorizontalLine;</span>
+                <code class="tree-file">stack.md</code>
+              </div>
+              <div class="tree-role">Exact languages, lockfile versions, dependencies, and test/build commands.</div>
+            </div>
+
+            <!-- File 5 -->
+            <div class="tree-row">
+              <div class="tree-path">
+                <span class="tree-branch">&boxvr;&HorizontalLine;</span>
+                <code class="tree-file">database.md</code>
+              </div>
+              <div class="tree-role">Entities, relational schema, indexing, data invariants, and migration strategy.</div>
+            </div>
+
+            <!-- File 6 -->
+            <div class="tree-row">
+              <div class="tree-path">
+                <span class="tree-branch">&boxvr;&HorizontalLine;</span>
+                <code class="tree-file">agent.md</code>
+              </div>
+              <div class="tree-role">Repository operating guidelines and safety constraints for coding agents.</div>
+            </div>
+
+            <!-- File 7: WORK-STATE.md Highlighted -->
+            <div class="tree-row tree-highlight-row">
+              <div class="tree-path">
+                <span class="tree-branch">&boxur;&HorizontalLine;</span>
+                <code class="tree-file highlight">WORK-STATE.md</code>
+                <span class="tree-badge">LIVING MEMORY</span>
+              </div>
+              <div class="tree-role highlight">
+                <strong>Active Session Handoff:</strong> in-progress behavior, verified outcomes, touched files, open blockers, and the single prioritized resume action for the subsequent agent.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq-section" id="faq">
+      <div class="container">
+        <div class="section-lead-block">
+          <div class="lead-number">06 / VERIFIED ANSWERS</div>
+          <div class="lead-content">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">
+              Verified operational details regarding ForgeX installation, invocation, and safety guarantees.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-ledger">
+          <!-- Q1 -->
+          <details class="faq-entry" open>
+            <summary class="faq-title">
+              <span>Is ForgeX an npm package or an agent skill?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-body">
+              <p>
+                ForgeX is a <strong>portable coding-agent skill</strong> containing a canonical <code>SKILL.md</code> and modular reference files. It is distributed via GitHub and installed directly using the Skills CLI (<code>npx skills add ...</code>) or the bundled Node.js installer (<code>node ./bin/install.js</code>). You do not need to install it as an application npm dependency.
+              </p>
+            </div>
+          </details>
+
+          <!-- Q2 -->
+          <details class="faq-entry">
+            <summary class="faq-title">
+              <span>Why does Codex use <code>$forgex</code> while others use <code>/forgex</code>?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-body">
+              <p>
+                Different agent hosts have distinct skill discovery and invocation conventions. In OpenAI Codex CLI/IDE, typing <code>$forgex</code> explicitly attaches the skill to your prompt, and ForgeX explicitly disables implicit activation (<code>allow_implicit_invocation: false</code>) so it doesn't clutter unrelated tasks. In Claude Code and Antigravity, slash commands or skill pickers are supported. There is no universal slash command across every AI host.
+              </p>
+            </div>
+          </details>
+
+          <!-- Q3 -->
+          <details class="faq-entry">
+            <summary class="faq-title">
+              <span>What happens if browser automation (Playwright/Chrome) is not installed?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-body">
+              <p>
+                Under ForgeX's <strong>Evidence-First Engineering</strong> rules, the agent will perform static source-code analysis and clearly report browser QA as <strong>BLOCKED / NOT RUN</strong>. It is strictly forbidden from claiming that visual checks passed or that screenshots were inspected when the required tooling is unavailable.
+              </p>
+            </div>
+          </details>
+
+          <!-- Q4 -->
+          <details class="faq-entry">
+            <summary class="faq-title">
+              <span>Will ForgeX overwrite my existing uncommitted Git modifications?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-body">
+              <p>
+                No. Step 2 of the ForgeX workflow explicitly mandates running <code>git status --short --branch</code>, inspecting modified paths, and preserving user changes. ForgeX never runs automated hard resets, stashes, or checkouts that could destroy your in-progress work.
+              </p>
+            </div>
+          </details>
+
+          <!-- Q5 -->
+          <details class="faq-entry">
+            <summary class="faq-title">
+              <span>How do I uninstall ForgeX if I no longer need it?</span>
+              <span class="faq-toggle-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-body">
+              <p>
+                The bundled installer writes a <code>.forgex-manifest.json</code> in the destination directory. You can uninstall by running <code>node ./bin/install.js --uninstall</code>, or simply remove the <code>forgex/</code> directory from your agent's skills folder (e.g. <code>.agents/skills/forgex</code>).
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section class="section cta-strip-section">
+      <div class="container">
+        <div class="cta-banner">
+          <div class="cta-heading-group">
+            <h2 class="cta-title">Ready to end agent amnesia and UI slop?</h2>
+            <p class="cta-subtitle">
+              Equip your AI agents with the full-stack engineering workflow built for real-world projects.
+            </p>
+          </div>
+          <div class="cta-action-group">
+            <a href="https://github.com/DanDhany/forgex-fullstack-engineer" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
+              View on GitHub &rarr;
+            </a>
+            <a href="#install" class="btn btn-secondary btn-lg">
+              Install via Skills CLI
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo-row">
+          <img src="./assets/logo.svg" alt="ForgeX Logo" width="24" height="24">
+          <strong class="footer-brand-name">ForgeX Full-Stack Engineer</strong>
+          <span class="version-tag">v1.1.8</span>
+        </div>
+        <p class="footer-bio">
+          One practical skill for AI coding agents. Prioritizes UI/UX craft, guarantees cross-stack contract consistency, and persists memory between sessions.
+        </p>
+        <p class="footer-license">
+          Released under the <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT License</a>. Created by <a href="https://github.com/DanDhany" target="_blank" rel="noopener noreferrer">DanDhany</a>.
+        </p>
+      </div>
+
+      <div class="footer-links-grid">
+        <div class="footer-col">
+          <h4 class="footer-heading">Navigation</h4>
+          <ul class="footer-list">
+            <li><a href="#workflow">5-Step Workflow</a></li>
+            <li><a href="#why">Why ForgeX</a></li>
+            <li><a href="#stacks">Supported Stacks</a></li>
+            <li><a href="#agents">Agent Compatibility</a></li>
+            <li><a href="#memory">Memory Pattern</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Repository</h4>
+          <ul class="footer-list">
+            <li><a href="https://github.com/DanDhany/forgex-fullstack-engineer" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
+            <li><a href="https://github.com/DanDhany/forgex-fullstack-engineer/issues" target="_blank" rel="noopener noreferrer">Report Issue</a></li>
+            <li><a href="https://skills.sh/DanDhany/forgex-fullstack-engineer" target="_blank" rel="noopener noreferrer">skills.sh Profile</a></li>
+            <li><a href="https://github.com/DanDhany/forgex-fullstack-engineer/blob/main/CHANGELOG.md" target="_blank" rel="noopener noreferrer">Changelog</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Quality Gates</h4>
+          <ul class="footer-list">
+            <li><span class="footer-status-pill"><span class="badge-dot"></span> 15 Node.js Tests Passing</span></li>
+            <li><span class="footer-status-pill"><span class="badge-dot"></span> Node.js &ge; 20 Required</span></li>
+            <li><span class="footer-status-pill"><span class="badge-dot"></span> Zero-Framework Runtime</span></li>
+            <li><span class="footer-status-pill"><span class="badge-dot"></span> GitHub Pages Compatible</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container for Copy Feedback -->
+  <div class="toast" id="toastNotification" role="status" aria-live="polite" aria-atomic="true">
+    Command copied to clipboard
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
