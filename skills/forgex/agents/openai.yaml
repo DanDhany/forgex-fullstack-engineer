@@ -1,0 +1,7 @@
+interface:
+  display_name: "ForgeX Full-Stack Engineer"
+  short_description: "UI/UX-first full-stack engineering with project handoff"
+  brand_color: "#2563eb"
+  default_prompt: "Use $forgex for this task. Inspect project context and uncommitted work first, make the smallest coherent change, verify it, update relevant docs, and leave a precise handoff."
+policy:
+  allow_implicit_invocation: false
