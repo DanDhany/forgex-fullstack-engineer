@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.2.0 — Universal modular engineering system
+
+- Preserved a single installable `forgex` skill entry point while adding conditional internal specialist modules.
+- Added an explicit task-to-module routing matrix to reduce unnecessary context loading and overlapping workflows.
+- Integrated original ForgeX-authored workflows for full-stack delivery, design review, Humanizer-style copy editing, visual QA, TDD/planning, docs freshness, Context7 guidance, Laravel Boost guidance, third-party skill security, recent research, and gstack-style QA.
+- Added one-/two-shot execution guidance emphasizing repository evidence, proportional planning, correction loops, real verification, and honest limits.
+- Documented upstream references, optional tools, licensing/attribution boundaries, and why complete third-party skill repositories are not vendored.
+- Added architecture documentation for module precedence, routing, and agent portability.
+- No third-party skill repository is installed or executed automatically.
+
+# Changelog
+
 ## 1.1.8 — Product-aware visual art direction
 
 - Added a product-specific art-direction framework for choosing brand colors, light-mode canvas/surfaces, dark-mode tonal steps, visual effects, and motion based on product identity and user context.

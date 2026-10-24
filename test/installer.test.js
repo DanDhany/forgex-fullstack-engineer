@@ -105,8 +105,8 @@ test("UI workflow is low-prompt and requires product-specific composition for ma
 test("package and skill versions stay aligned", async () => {
   const pkg = JSON.parse(await fs.readFile(path.resolve("package.json"), "utf8"));
   const skill = await fs.readFile(path.resolve("skills/forgex/SKILL.md"), "utf8");
-  assert.equal(pkg.version, "1.1.8");
-  assert.match(skill, /version: "1.1.8"/);
+  assert.equal(pkg.version, "1.2.0");
+  assert.match(skill, /version: "1.2.0"/);
 });
 
 

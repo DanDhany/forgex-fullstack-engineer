@@ -54,16 +54,29 @@ You can also open `site/index.html` directly in any modern browser:
 - macOS: `open site/index.html`
 - Linux: `xdg-open site/index.html`
 
+## 🧩 Modular Expertise (v1.2.0)
+
+The landing page inventory mirrors the 16 internal specialist modules in the ForgeX v1.2.0 skill ZIP:
+- Product & Interface Craft: `impeccable-design-critique`, `taste-art-direction`, `design-review`, `interaction-motion-craft`.
+- Engineering Delivery: `fullstack-feature`, `spec-planning-tdd`, `contract-checklist`.
+- Quality, Verification & Safety: `gstack-style-qa`, `visual-qa`, `visual-test-case-template`, `skill-security`.
+- Writing, Documentation & Integrations: `humanizer`, `docs-freshness`, `context7-docs`, `laravel-boost-integration`, `last30days-research`.
+
+These are internal reference modules, not 16 separately installed skills. Shared guidance (routing, cross-stack contracts, evidence, security, quality gates, documentation, and session handoff) is maintained separately. Optional integrations do not mean their runtimes are bundled.
+
 ## 🧪 Testing & Verification
 
-Automated validation checks are located in `test/site.test.js`:
+Automated validation checks are located in `test/site.test.js` and `test/module-inventory.test.js`:
 - Semantic HTML tags and SEO/OpenGraph metadata validation.
 - Relative asset path verification (preventing absolute path regressions).
 - Responsive viewport declaration and theme token completeness.
-- Real headless browser tests (Chrome DevTools Protocol) verifying no horizontal overflow (`scrollWidth <= clientWidth + 1`) at 390×844 (mobile), 768×1024 (tablet), and 1440×900 (desktop) across both light and dark themes.
+- A Chrome DevTools Protocol QA script is available at `site/run-qa.mjs`. It is an additional browser check, not part of the deterministic unit tests; verify that Chrome/Chromium and its remote-debugging WebSocket are available in your environment before relying on it.
+- Screenshots under `site/qa-artifacts/baseline-v1.1.8/` are retained historical baseline captures and do not represent the updated v1.2.0 page.
 
-Run tests with:
+Run the deterministic static-site and module-inventory tests with:
 
 ```bash
 npm test
 ```
+
+The current test suite checks semantic landmarks, GitHub Pages-relative asset paths, theme/responsive tokens, all 16 module names, the v1.2.0 label, and desktop/mobile navigation links. Browser QA must be run separately.

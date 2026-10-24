@@ -35,7 +35,17 @@ const server = http.createServer((req, res) => {
 await new Promise((resolve) => server.listen(PORT, resolve));
 console.log(`[QA Server] Running on http://localhost:${PORT}`);
 
-const CHROME_PATH = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
+const chromeCandidates = [
+  process.env.CHROME_PATH,
+  "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+  "/usr/bin/chromium",
+  "/usr/bin/chromium-browser",
+  "/usr/bin/google-chrome",
+].filter(Boolean);
+const CHROME_PATH = chromeCandidates.find((candidate) => fs.existsSync(candidate));
+if (!CHROME_PATH) {
+  throw new Error("Chrome/Chromium not found. Set CHROME_PATH to the browser executable.");
+}
 const DEBUG_PORT = 9225;
 const tempUserData = fs.mkdtempSync(path.join(os.tmpdir(), 'chrome-qa-'));
 

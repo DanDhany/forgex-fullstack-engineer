@@ -27,6 +27,12 @@ It is designed for developers who move between prototypes and real applicationsâ
 
 > **The goal:** less re-discovery, fewer disconnected layers, more deliberate UI, and a clear next step when you switch agents.
 
+## One skill, modular expertise
+
+ForgeX installs as a single skill entry point (`skills/forgex/SKILL.md`). Its focused reference modules are loaded conditionally; users do not need to install or orchestrate each internal module. See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md), [`skills/forgex/references/module-routing.md`](skills/forgex/references/module-routing.md), and [`docs/UPSTREAM-REFERENCES.md`](docs/UPSTREAM-REFERENCES.md) for routing, workflows, external-source boundaries, and licensing policy.
+
+ForgeX aims to make one- or two-shot implementation more reliable through repository discovery, proportional planning, focused expertise, real verification, correction loops, and honest handoff. It cannot guarantee production readiness independent of model capability, permissions, available tools, and project state.
+
 ## âœ¨ What makes it different?
 
 <table>

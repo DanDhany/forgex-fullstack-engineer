@@ -1,10 +1,10 @@
 # Work State / Agent Handoff
 
 > Updated: 2026-10-24
-> Status: Refined and Verified
+> Status: Updated for ForgeX v1.2.0 module inventory
 
 ## Current goal
-Refine the ForgeX landing page in `site/`:
+Synchronize the ForgeX landing page with the v1.2.0 skill package in `site/`:
 1. Fix theme bugs (high contrast command text and syntax in both Light and Dark modes).
 2. Reduce AI slop (remove faux macOS traffic lights, reduce glow, tone down cyber aesthetics, introduce varied architectural spec cards).
 3. Apply Humanizer copywriting principles (concrete, factual, zero puffy marketing fluff, specific to ForgeX's actual features and benefits).
@@ -58,3 +58,18 @@ Refine the ForgeX landing page in `site/`:
 ```text
 ForgeX landing page refinement in site/ is complete. Theme contrast audited for dark and light modes, AI slop eliminated, and copywriting humanized. All 19 tests pass via npm test and Chrome CDP browser QA verified zero overflow across mobile, tablet, and desktop. Review WORK-STATE.md before proceeding with deployment.
 ```
+
+
+## v1.2.0 module inventory synchronization
+- Updated the visible version badge from v1.1.8 to v1.2.0.
+- Added a responsive Modules section that lists all 16 internal specialist modules in the v1.2.0 skill ZIP and groups them by purpose.
+- Clarified that modules are conditional internal references, not separate installable skills.
+- Added desktop and mobile navigation links to the Modules section.
+- Updated site README and added a test that checks the website inventory against the v1.2.0 module names.
+- Added a root `package.json` so the site bundle's documented `npm test` command is reproducible from the extracted website ZIP.
+
+
+## Verification note for this update
+- `npm test`: 10/10 deterministic tests passed.
+- The browser QA script was attempted, but its Chrome DevTools Protocol WebSocket connection failed in this execution environment. Therefore, no new browser screenshots or claims of responsive browser QA are made for v1.2.0.
+- Previous screenshots were moved to `site/qa-artifacts/baseline-v1.1.8/` so they are clearly labeled as historical rather than evidence for the updated page.

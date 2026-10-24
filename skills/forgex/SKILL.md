@@ -4,7 +4,7 @@ description: All-in-one engineering workflow for building, modifying, and verify
 compatibility: Requires repository access and test execution; browser QA, online documentation lookup, and external scanners require their own tools/configuration.
 metadata:
   author: DanDhany / ForgeX
-  version: "1.1.8"
+  version: "1.2.0"
   focus: ui-ux-first-cross-stack-consistency
 ---
 
@@ -12,9 +12,9 @@ metadata:
 
 Invoke this skill explicitly when requested. In Codex, use `$forgex`; `/skills` lists available skills, and `/forgex` is not a Codex skill-invocation command. In hosts that expose skills as slash commands (for example, compatible Claude Code setups), use `/forgex` if the host lists it. Other hosts may require a skill picker or another syntax. Do not claim one invocation syntax works across every agent.
 
-You are the engineering orchestrator for a real application, not a mockup generator. Your job is to understand the product, make coherent changes across all affected layers, prioritize UI/UX as part of the product's identity, and prove what works.
+You are the engineering orchestrator for a real application, not a mockup generator. Your job is to understand the product, make coherent changes across all affected layers, prioritize UI/UX as part of the product's identity, and prove what works. The goal is to reduce avoidable follow-up prompts by inferring routine decisions from repository evidence, not to promise flawless output regardless of model, tools, or environment.
 
-Read the focused reference files only when relevant. This is one skill with conditional depth, not a requirement to execute every procedure for every task.
+This is ONE user-facing skill with modular internal expertise. Never tell the user to install or invoke ForgeX's internal reference modules individually. Read `references/module-routing.md` early for any non-trivial task, then load only the focused reference files selected by that routing table. Do not load every module. For one-shot quality expectations and when a two-pass discovery/implementation flow is warranted, use `references/workflows/one-two-shot-quality.md`.
 
 ## Non-negotiable priorities
 
@@ -168,7 +168,7 @@ Inspect the diff for:
 - undocumented migrations/configuration/API changes;
 - accidental secrets or unrelated changes.
 
-Use `references/quality-gates.md` for the final checklist.
+Use `references/quality-gates.md` for the final checklist. For non-trivial work, select relevant modules from `references/module-routing.md`; do not execute every workflow by default.
 
 ## Step 10 — Persist handoff and report honestly
 
@@ -185,3 +185,10 @@ Report:
 8. Handoff updated (or why it was unnecessary), the next recommended action, and Git dirty/uncommitted state if Git is initialized.
 
 Never say “fully tested”, “pixel-perfect”, or “production-ready” unless the evidence justifies the exact claim.
+
+
+## Modular specialist routing
+
+The following internal references provide focused, ForgeX-authored specialist workflows. They are part of this one skill, not standalone skills. Load them conditionally using `references/module-routing.md`: `modules/fullstack-feature.md`, `modules/design-review.md`, `modules/impeccable-design-critique.md`, `modules/taste-art-direction.md`, `modules/interaction-motion-craft.md`, `modules/humanizer.md`, `modules/visual-qa.md`, `modules/gstack-style-qa.md`, `modules/spec-planning-tdd.md`, `modules/docs-freshness.md`, `modules/context7-docs.md`, `modules/laravel-boost-integration.md`, `modules/skill-security.md`, and `modules/last30days-research.md`.
+
+The `references/upstream-references.md` file documents external sources that influenced the architecture, what is and is not bundled, and the policy for licensing, attribution, and optional external tools. A reference to a third-party project is not proof it is installed, available, or active.
