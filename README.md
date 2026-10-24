@@ -155,7 +155,7 @@ The installer currently includes default paths for these agents. Directory conve
 | GitHub Copilot | `.github/skills/` | `~/.copilot/skills/` |
 | Gemini CLI | `.agents/skills/` | `~/.gemini/skills/` |
 | Windsurf | `.windsurf/skills/` | `~/.codeium/windsurf/skills/` |
-| Antigravity | `.agent/skills/` | `~/.gemini/antigravity/global_skills/` |
+| Antigravity | `.agents/skills/` | `~/.gemini/config/skills/` |
 
 > The installer downloads the ForgeX skill and its references from GitHub. It does not automatically install browser automation, MCP servers, or other external tools.
 

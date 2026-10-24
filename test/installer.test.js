@@ -73,3 +73,20 @@ test("Codex metadata documents explicit-only ForgeX invocation", async () => {
   assert.match(skill, /In Codex, use `\$forgex`/);
   assert.match(skill, /`\/forgex` is not a Codex skill-invocation command/);
 });
+
+
+test("evidence-first guardrails forbid invented facts and unverified success claims", async () => {
+  const skill = await fs.readFile(path.resolve("skills/forgex/SKILL.md"), "utf8");
+  const evidence = await fs.readFile(path.resolve("skills/forgex/references/evidence-first-engineering.md"), "utf8");
+  assert.match(skill, /Evidence before claims/);
+  assert.match(skill, /references\/evidence-first-engineering\.md/);
+  assert.match(evidence, /Never fabricate screenshots, browser observations, logs, test counts, build results, or tool calls/);
+  assert.match(evidence, /Do not equate “implemented” with “tested,”/);
+});
+
+test("Antigravity installer uses current documented skill paths", async () => {
+  const agents = await import("../src/agents.js");
+  const antigravity = agents.AGENTS.find((agent) => agent.id === "antigravity");
+  assert.deepEqual(antigravity.project, [".agents", "skills"]);
+  assert.deepEqual(antigravity.global.slice(-3), [".gemini", "config", "skills"]);
+});

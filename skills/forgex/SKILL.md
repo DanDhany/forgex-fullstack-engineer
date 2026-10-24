@@ -4,7 +4,7 @@ description: All-in-one engineering workflow for building, modifying, and verify
 compatibility: Requires repository access and test execution; browser QA, online documentation lookup, and external scanners require their own tools/configuration.
 metadata:
   author: DanDhany / ForgeX
-  version: "1.1.1"
+  version: "1.1.2"
   focus: ui-ux-first-cross-stack-consistency
 ---
 
@@ -24,6 +24,8 @@ Read the focused reference files only when relevant. This is one skill with cond
 4. **Small coherent changes.** Avoid unnecessary architecture rewrites, dependencies, or process ceremony.
 5. **Durable handoff between agents and sessions.** Treat project Markdown as working memory, not ceremony. On session start, read the project handoff/state file and canonical docs before broad code exploration. At task end, update the handoff with exact progress and next actions.
 6. **Truthful documentation and durable project context.** Keep project decisions and user-facing module documentation in sync with implementation. For prototypes/new projects that need tracked context, maintain `product.md`, `system.md`, `design.md`, `stack.md`, `database.md`, and `agent.md` or map equivalent docs. Update only what changed.
+7. **Evidence before claims.** Never invent repository facts, APIs, paths, dependencies, command output, test results, or browser evidence. Distinguish observed facts, inferences, assumptions, and unknowns. Verify critical claims against source files or tool output; if evidence is missing, investigate or report uncertainty.
+8. **Fail honestly, recover deliberately.** When a command or test fails, preserve its real result, diagnose the cause, and retry only with a reason. Never silently skip failed checks or report success without observed evidence.
 
 ## Step 1 — Triage the task
 
@@ -48,6 +50,8 @@ Follow `references/session-handoff.md`. First look for `WORK-STATE.md`, `HANDOFF
 - Identify the exact stack and versions; do not assume Laravel, React, TypeScript, Python, or package versions from folder names alone.
 - Understand the product audience, primary task, brand character, existing design system, and established architecture.
 - Identify real gaps and state assumptions. Ask a focused question only when an unresolved decision materially affects correctness or product direction.
+
+Before editing, apply `references/evidence-first-engineering.md` for evidence discipline, uncertainty handling, and completion claims. Keep this lightweight for trivial copy-only changes; apply it rigorously to code, configuration, API, database, security, and deployment work.
 
 ## Step 3 — Design first when UI is involved
 

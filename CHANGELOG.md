@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.2 — Evidence-first guardrails and current Antigravity paths
+
+- Added explicit evidence-first instructions to reduce invented repository facts, APIs, command results, and unverified completion claims.
+- Added a focused reference for uncertainty handling, failure reporting, and verification discipline.
+- Updated the bundled Antigravity installer mapping to its documented default skill paths: `.agents/skills/` and `~/.gemini/config/skills/`, retaining legacy compatibility in documentation.
+- Added regression tests for evidence-first requirements and Antigravity path mapping.
+- Aligned package and skill metadata to version 1.1.2.
+
 ## 1.1.1 — Independent naming and metadata cleanup
 
 - Removed third-party skill/tool names from the active skill instructions and user-facing README.

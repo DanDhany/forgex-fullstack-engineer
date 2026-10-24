@@ -11,7 +11,7 @@ export const AGENTS = [
   { id: "github-copilot", label: "GitHub Copilot", project: [".github", "skills"], global: [home, ".copilot", "skills"] },
   { id: "gemini-cli", label: "Gemini CLI", project: [".agents", "skills"], global: [home, ".gemini", "skills"] },
   { id: "windsurf", label: "Windsurf", project: [".windsurf", "skills"], global: [home, ".codeium", "windsurf", "skills"] },
-  { id: "antigravity", label: "Antigravity", project: [".agent", "skills"], global: [home, ".gemini", "antigravity", "global_skills"] },
+  { id: "antigravity", label: "Antigravity", project: [".agents", "skills"], global: [home, ".gemini", "config", "skills"] },
 ];
 
 export function targetRoot(agent, scope, projectRoot = process.cwd()) {
