@@ -1,6 +1,14 @@
 # UI/UX craft — anti-slop design and implementation protocol
 
-Use this protocol for new pages, redesigns, and meaningful UI changes. The goal is a product-specific interface with coherent behavior, not a generic “modern SaaS” look. Keep this as one workflow; do not load every external skill or run every possible review for a tiny change.
+Use this protocol automatically for new pages, redesigns, and meaningful UI changes; users should not need to repeat the checklist in their prompts. The goal is a product-specific interface with coherent behavior, not a generic “modern SaaS” look. Keep this as one workflow; do not load every external skill or run every possible review for a tiny change.
+
+## Default contract: decide, build, inspect, refine
+
+For a substantial UI task, do not jump from a vague request directly into JSX/CSS. First form a concrete art direction from repository evidence and user intent, then implement it, inspect the real render if browser tools exist, and refine the highest-impact problems. Keep the user-facing plan brief; do not ask for approval for every ordinary design decision. Ask only when a missing decision would materially change product identity, user behavior, or scope.
+
+The design direction must name actual choices—not adjectives—including composition/layout, typography, content density, color/surface treatment, imagery, and motion. For a new landing page or major redesign, consider at least two meaningfully different composition directions (not merely palette swaps), then choose one based on the product's actual content and brand. Do not turn this into a long user interview: infer low-risk choices and proceed. Ask only about decisions that materially change identity, user behavior, scope, or costly reversals. Choose one direction and execute it consistently rather than mixing several visual trends.
+
+**Low-prompt contract:** users should not need to say “make it beautiful,” “avoid slop,” “use good UX,” “be responsive,” or “inspect the browser.” Apply the relevant workflow automatically from the task. Keep design reasoning concise and internal unless the user requests a rationale; do not stop at a plan when implementation is requested.
 
 ## 1. Read the product before choosing its look
 
@@ -43,7 +51,7 @@ Treat these as warning signs, not absolute bans. Use a pattern only when there i
 - Treating a responsive layout as desktop UI merely squeezed into a narrow viewport.
 - Replacing existing product identity with a trend-driven redesign without a request.
 
-Before accepting the UI, name the specific choices that make it fit this product: composition, hierarchy, type, density, surface treatment, interaction, content, or navigation. “Looks modern” is not a sufficient rationale.
+Before accepting the UI, name the specific choices that make it fit this product: composition, hierarchy, type, density, surface treatment, interaction, content, or navigation. “Looks modern” is not a sufficient rationale. For a new landing page, explicitly check whether its silhouette and section rhythm could be mistaken for dozens of unrelated AI SaaS pages. If yes, revisit composition, content hierarchy, and product-specific visuals before adding more decorative effects.
 
 ## 4. Responsive, themes, and reusable components are release requirements
 
@@ -78,7 +86,7 @@ After implementation, perform a focused review rather than declaring the first r
 - **Distill:** remove decorative elements and choices that do not help the task.
 - **Harden:** test empty/error/loading/permission cases, long content, keyboard flow, small screens, and both themes.
 
-Prioritize findings by user impact and fix them; do not generate a long critique that is never applied. Do not invent a numeric design score or claim a detector/browser ran unless it actually ran.
+Prioritize findings by user impact and fix them; do not generate a long critique that is never applied. For a new page or substantial redesign, do at least one meaningful critique → refinement → reinspection cycle when browser tooling permits. Refinement should address structural issues first (composition, hierarchy, density, product fit), then styling details; do not spend the pass only tweaking shadows or border radii. Do not invent a numeric design score or claim a detector/browser ran unless it actually ran.
 
 ## 7. Verification and evidence
 

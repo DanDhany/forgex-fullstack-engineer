@@ -33,7 +33,7 @@ It is designed for developers who move between prototypes and real applications�
   <tr>
     <td width="50%" valign="top">
       <h3>🎨 UI/UX is part of engineering</h3>
-      Start with the product and existing design system. Choose a deliberate visual direction, then implement and review the result. Responsive layouts, light and dark themes, reusable components, accessibility, and interaction states are explicit requirements—not last-minute polish.
+      Start with the product and existing design system. ForgeX infers routine design choices from a short request, chooses a product-specific art direction before substantial UI work, and closes the loop with rendered critique and refinement when browser tools are available. Responsive layouts, light and dark themes, reusable components, accessibility, and interaction states are explicit requirements—not last-minute polish.
     </td>
     <td width="50%" valign="top">
       <h3>🔗 Full-stack changes stay connected</h3>

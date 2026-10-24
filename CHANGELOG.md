@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.1.4 — Low-prompt design direction and visual quality gates
+
+- Made the design workflow explicitly low-prompt: users do not need to repeat anti-slop, responsive, accessibility, or visual-QA requirements.
+- Required meaningfully different composition exploration for new landing pages and major redesigns, rather than superficial palette variations.
+- Added a landing-page distinctiveness check against generic AI SaaS composition patterns.
+- Strengthened visual completion criteria: critique structural issues first, refine the rendered result, and reinspect when browser tools are available.
+- Clarified that build success is not evidence of visual quality and that unsupported visual QA must be reported honestly.
+- Updated package and skill metadata to 1.1.4.
+
+## 1.1.3 — Automatic UI/UX workflow and visual refinement
+
+- Made the UI/UX workflow automatically trigger for UI-related tasks, so users do not need long design prompts or explicit anti-slop reminders.
+- Required product-specific art direction before substantial UI implementation, rather than relying on generic style adjectives.
+- Strengthened the default implement → real-browser inspect → critique → refine loop when browser tooling is available.
+- Clarified proportional behavior: lightweight changes receive lightweight review; new pages and redesigns require deeper visual QA when tools permit.
+- Added explicit honesty rules when rendered visual verification is unavailable; no invented screenshots or claims of browser QA.
+- Updated package and skill metadata to 1.1.3.
+
 ## 1.1.2 — Evidence-first guardrails and current Antigravity paths
 
 - Added explicit evidence-first instructions to reduce invented repository facts, APIs, command results, and unverified completion claims.

@@ -4,7 +4,7 @@ description: All-in-one engineering workflow for building, modifying, and verify
 compatibility: Requires repository access and test execution; browser QA, online documentation lookup, and external scanners require their own tools/configuration.
 metadata:
   author: DanDhany / ForgeX
-  version: "1.1.2"
+  version: "1.1.4"
   focus: ui-ux-first-cross-stack-consistency
 ---
 
@@ -53,18 +53,33 @@ Follow `references/session-handoff.md`. First look for `WORK-STATE.md`, `HANDOFF
 
 Before editing, apply `references/evidence-first-engineering.md` for evidence discipline, uncertainty handling, and completion claims. Keep this lightweight for trivial copy-only changes; apply it rigorously to code, configuration, API, database, security, and deployment work.
 
-## Step 3 — Design first when UI is involved
+## Step 3 — Automatically run the UI/UX workflow when UI is involved
 
-Before implementation, establish a concise design direction:
-- Who is using this surface, what are they trying to do, and what emotion/brand should it convey?
-- What is the primary action and visual hierarchy?
-- What layout, typography, spacing, color, imagery, component patterns, density, and motion are appropriate for this product?
-- What are the loading, empty, success, disabled, validation, error, permission, and long-content states?
-- What does mobile need to do differently from desktop? How must the component render in light and dark themes? Can it reuse an existing component, token, or pattern?
+This workflow is triggered by the work, not by special wording. The user can say “build the landing page,” “add this feature,” or “fix this screen”; do not require them to repeat design principles, anti-slop rules, responsive requirements, or visual QA instructions. Infer ordinary design decisions from product context and proceed without asking for approval at every step. Ask only when a missing decision materially changes product identity, user behavior, scope, or irreversible trade-offs.
 
-Do not default to generic AI SaaS patterns. Avoid gratuitous gradients, card grids, pill-shaped everything, meaningless icon tiles, arbitrary motion, and default fonts/layouts without a product reason. Reuse coherent existing tokens; otherwise define a small, consistent set rather than one-off CSS patches.
+For every task that changes a page, component, interaction, layout, visual style, or user-facing copy, apply the relevant UI/UX workflow automatically. For substantial UI work, a design direction and rendered critique/refinement pass are part of completion—not optional polish. For non-UI tasks, do not load or execute this workflow unnecessarily.
 
-Use `references/ui-ux-craft.md` and `references/copywriting.md` when UI, branding, content, documentation, or UX is in scope. ForgeX uses its own documented procedures: establish product context, make deliberate visual decisions, audit and improve the rendered experience, and write clear, natural, factual copy. Do not imitate a recognizable third-party visual style or claim that an external tool ran unless it was actually available and used.
+Before coding a meaningful UI change:
+- Inspect the current rendered interface, existing design system, product docs, assets, and neighboring screens when available.
+- Infer the audience and product goal from evidence. Identify the primary user action, brand character, and content hierarchy.
+- Commit to a specific, product-appropriate art direction in a short working note: composition, typography, density, palette, surfaces, imagery, and motion. These must be concrete choices, not just “modern,” “clean,” “premium,” or “beautiful.” Keep this note concise; do not burden the user with a long design questionnaire.
+- Consider at least two materially different composition directions for a new landing page or major redesign, then select the one best supported by product identity and content. Do not merely choose different colors for the same template. For small UI changes, skip exploration and follow the established design system.
+- Choose a composition that fits the product rather than defaulting to a centered hero, gradient headline, floating preview card, repeated feature-card grid, or generic dashboard. Familiar patterns are allowed when justified by the product and references.
+- Prefer real product UI, meaningful data, and useful interactions over decorative mockups. Do not invent product capabilities, testimonials, metrics, or integrations.
+- Reuse the project's components and tokens where they support the chosen direction. Do not force a new design system onto an established product without reason.
+- For a new landing page, make the first viewport communicate the product and its distinct point of view. Avoid assembling the usual hero + badges + terminal card + three feature cards unless the evidence specifically supports that composition.
+
+Implement, then close the visual feedback loop:
+1. Start or locate the application if the environment permits.
+2. Inspect the rendered result in a real browser, not only the source code or successful build.
+3. Review the main target viewport and responsive behavior; for substantial responsive work, check approximately 390×844, 768×1024, and 1440×900 when tooling supports those sizes.
+4. Check hierarchy, typography, spacing, content wrapping, overflow, contrast, focus/keyboard behavior, real interactions, loading/error/empty states where applicable, and light/dark themes when supported by the product.
+5. Identify the highest-impact visual/UX problems, fix them, and inspect the result again. Do not stop at the first render if evidence shows meaningful defects.
+6. Identify the three highest-impact visual or UX defects, fix the meaningful ones, and inspect the revised render again. A critique without a corresponding refinement is not a completed visual workflow.
+7. If browser/screenshot tooling is unavailable, do the strongest available source-level review and clearly report that rendered visual QA was not performed. Never claim to have seen or tested a page without evidence.
+8. Do not treat a successful build, valid JSX, or a tidy source diff as evidence that the interface looks good. Visual quality requires rendered inspection when tools permit.
+
+Use `references/ui-ux-craft.md` for the detailed procedure and `references/copywriting.md` when user-facing copy is in scope. This is the default behavior for UI work, not an extra workflow the user must explicitly request. Scale the depth to task size: tiny copy or spacing changes need a lightweight review; new pages and redesigns require explicit art direction and a rendered critique/refinement pass when tools permit. Do not imitate a recognizable third-party visual style or claim that an external tool ran unless it was actually available and used.
 
 ## Step 4 — Plan proportionally
 

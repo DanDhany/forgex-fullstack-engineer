@@ -90,3 +90,21 @@ test("Antigravity installer uses current documented skill paths", async () => {
   assert.deepEqual(antigravity.project, [".agents", "skills"]);
   assert.deepEqual(antigravity.global.slice(-3), [".gemini", "config", "skills"]);
 });
+
+
+test("UI workflow is low-prompt and requires product-specific composition for major UI work", async () => {
+  const skill = await fs.readFile(path.resolve("skills/forgex/SKILL.md"), "utf8");
+  const ui = await fs.readFile(path.resolve("skills/forgex/references/ui-ux-craft.md"), "utf8");
+  assert.match(skill, /do not require them to repeat design principles/);
+  assert.match(skill, /Consider at least two materially different composition directions/);
+  assert.match(ui, /Low-prompt contract/);
+  assert.match(ui, /critique → refinement → reinspection cycle/);
+  assert.match(ui, /do not spend the pass only tweaking shadows or border radii/);
+});
+
+test("package and skill versions stay aligned", async () => {
+  const pkg = JSON.parse(await fs.readFile(path.resolve("package.json"), "utf8"));
+  const skill = await fs.readFile(path.resolve("skills/forgex/SKILL.md"), "utf8");
+  assert.equal(pkg.version, "1.1.4");
+  assert.match(skill, /version: "1.1.4"/);
+});
